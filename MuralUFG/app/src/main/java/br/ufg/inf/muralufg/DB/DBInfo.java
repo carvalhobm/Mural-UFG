@@ -13,39 +13,39 @@ class DBInfo {
 
     //Columns
     private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_Title = "title";
-    private static final String COLUMN_News = "news";
-    private static final String COLUMN_Photo = "photo";
-    private static final String COLUMN_Author = "author";
-    private static final String COLUMN_AuthorBelongs = "authorbelongs";
-    private static final String COLUMN_DateTime = "datetime";
-    private static final String COLUMN_IsReaded = "isreaded";
-    private static final String COLUMN_Relevance = "relevance";
+    private static final String COLUMN_TITLE = "title";
+    private static final String COLUMN_NEWS = "news";
+    private static final String COLUMN_PHOTO = "photo";
+    private static final String COLUMN_AUTHOR = "author";
+    private static final String COLUMN_AUTHORBELONGS = "authorbelongs";
+    private static final String COLUMN_DATETIME = "datetime";
+    private static final String COLUMN_ISREADED = "isreaded";
+    private static final String COLUMN_RELEVANCE = "relevance";
     private static final String COLUMN_URL = "url";
-    private static final String COLUMN_UnitID = "unitid";
-    private static final String COLUMN_Unit = "unit";
-    private static final String COLUMN_IsChecked = "ischecked";
+    private static final String COLUMN_UNITID = "unitid";
+    private static final String COLUMN_UNIT = "unit";
+    private static final String COLUMN_ISCHECKED = "ischecked";
 
     //Creates
     private static final String CREATE_TABLE_NEWS = "CREATE TABLE "
             + TABLE_NAME_NEWS + "("
             + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + COLUMN_Title + " TEXT NOT NULL, "
-            + COLUMN_News + " TEXT NOT NULL, "
-            + COLUMN_Photo + " TEXT, "
-            + COLUMN_Author + " TEXT NOT NULL, "
-            + COLUMN_AuthorBelongs + " INTEGER NOT NULL, "
-            + COLUMN_DateTime + " TEXT NOT NULL, "
-            + COLUMN_IsReaded + " INTEGER NOT NULL, "
-            + COLUMN_Relevance + " INTEGER NOT NULL, "
+            + COLUMN_TITLE + " TEXT NOT NULL, "
+            + COLUMN_NEWS + " TEXT NOT NULL, "
+            + COLUMN_PHOTO + " TEXT, "
+            + COLUMN_AUTHOR + " TEXT NOT NULL, "
+            + COLUMN_AUTHORBELONGS + " INTEGER NOT NULL, "
+            + COLUMN_DATETIME + " TEXT NOT NULL, "
+            + COLUMN_ISREADED + " INTEGER NOT NULL, "
+            + COLUMN_RELEVANCE + " INTEGER NOT NULL, "
             + COLUMN_URL + " TEXT NOT NULL);";
 
     private static final String CREATE_TABLE_ACADEMITUNITS = "CREATE TABLE "
             + TABLE_NAME_ACADEMITUNITS + "("
             + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + COLUMN_UnitID + " INTEGER NOT NULL, "
-            + COLUMN_Unit + " TEXT NOT NULL, "
-            + COLUMN_IsChecked + " INTEGER NOT NULL);";
+            + COLUMN_UNITID + " INTEGER NOT NULL, "
+            + COLUMN_UNIT + " TEXT NOT NULL, "
+            + COLUMN_ISCHECKED + " INTEGER NOT NULL);";
 
     //Deletes
     private static final String DELETE_TABLE_NEWS = "DROP TABLE IF EXISTS " + TABLE_NAME_NEWS;
@@ -72,52 +72,52 @@ class DBInfo {
         return COLUMN_ID;
     }
 
-    public static String getCOLUMN_Title() {
-        return COLUMN_Title;
+    public static String getCOLUMN_TITLE() {
+        return COLUMN_TITLE;
     }
 
-    public static String getCOLUMN_News() {
-        return COLUMN_News;
+    public static String getCOLUMN_NEWS() {
+        return COLUMN_NEWS;
     }
 
-    public static String getCOLUMN_Photo() {
-        return COLUMN_Photo;
+    public static String getCOLUMN_PHOTO() {
+        return COLUMN_PHOTO;
     }
 
-    public static String getCOLUMN_Author() {
-        return COLUMN_Author;
+    public static String getCOLUMN_AUTHOR() {
+        return COLUMN_AUTHOR;
     }
 
-    public static String getCOLUMN_AuthorBelongs() {
-        return COLUMN_AuthorBelongs;
+    public static String getCOLUMN_AUTHORBELONGS() {
+        return COLUMN_AUTHORBELONGS;
     }
 
-    public static String getCOLUMN_DateTime() {
-        return COLUMN_DateTime;
+    public static String getCOLUMN_DATETIME() {
+        return COLUMN_DATETIME;
     }
 
-    public static String getCOLUMN_IsReaded() {
-        return COLUMN_IsReaded;
+    public static String getCOLUMN_ISREADED() {
+        return COLUMN_ISREADED;
     }
 
-    public static String getCOLUMN_Relevance() {
-        return COLUMN_Relevance;
+    public static String getCOLUMN_RELEVANCE() {
+        return COLUMN_RELEVANCE;
     }
 
     public static String getCOLUMN_URL() {
         return COLUMN_URL;
     }
 
-    public static String getCOLUMN_UnitID() {
-        return COLUMN_UnitID;
+    public static String getCOLUMN_UNITID() {
+        return COLUMN_UNITID;
     }
 
-    public static String getCOLUMN_Unit() {
-        return COLUMN_Unit;
+    public static String getCOLUMN_UNIT() {
+        return COLUMN_UNIT;
     }
 
-    public static String getCOLUMN_IsChecked() {
-        return COLUMN_IsChecked;
+    public static String getCOLUMN_ISCHECKED() {
+        return COLUMN_ISCHECKED;
     }
 
     public static void CreateDB(SQLiteDatabase db) {
