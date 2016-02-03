@@ -72,35 +72,35 @@ class DBInfo {
         return COLUMN_ID;
     }
 
-    public static String getCOLUMN_TITLE() {
+    public static String getColumnTitle() {
         return COLUMN_TITLE;
     }
 
-    public static String getCOLUMN_NEWS() {
+    public static String getColumnNews() {
         return COLUMN_NEWS;
     }
 
-    public static String getCOLUMN_PHOTO() {
+    public static String getColumnPhoto() {
         return COLUMN_PHOTO;
     }
 
-    public static String getCOLUMN_AUTHOR() {
+    public static String getColumnAuthor() {
         return COLUMN_AUTHOR;
     }
 
-    public static String getCOLUMN_AUTHORBELONGS() {
+    public static String getColumnAuthorbelongs() {
         return COLUMN_AUTHORBELONGS;
     }
 
-    public static String getCOLUMN_DATETIME() {
+    public static String getColumnDatetime() {
         return COLUMN_DATETIME;
     }
 
-    public static String getCOLUMN_ISREADED() {
+    public static String getColumnIsreaded() {
         return COLUMN_ISREADED;
     }
 
-    public static String getCOLUMN_RELEVANCE() {
+    public static String getColumnRelevance() {
         return COLUMN_RELEVANCE;
     }
 
@@ -108,15 +108,15 @@ class DBInfo {
         return COLUMN_URL;
     }
 
-    public static String getCOLUMN_UNITID() {
+    public static String getColumnUnitid() {
         return COLUMN_UNITID;
     }
 
-    public static String getCOLUMN_UNIT() {
+    public static String getColumnUnit() {
         return COLUMN_UNIT;
     }
 
-    public static String getCOLUMN_ISCHECKED() {
+    public static String getColumnIschecked() {
         return COLUMN_ISCHECKED;
     }
 

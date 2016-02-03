@@ -48,14 +48,14 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     public int addNews(News news) {
         ContentValues values = new ContentValues();
-        values.put(DBInfo.getCOLUMN_Title(), news.get_title());
-        values.put(DBInfo.getCOLUMN_News(), news.get_news());
-        values.put(DBInfo.getCOLUMN_Photo(), news.get_photo());
-        values.put(DBInfo.getCOLUMN_Author(), news.get_author());
-        values.put(DBInfo.getCOLUMN_AuthorBelongs(), news.get_authorbelongs());
-        values.put(DBInfo.getCOLUMN_DateTime(), news.get_datetime());
-        values.put(DBInfo.getCOLUMN_IsReaded(), 0);
-        values.put(DBInfo.getCOLUMN_Relevance(), news.get_relevance());
+        values.put(DBInfo.getColumnTitle(), news.get_title());
+        values.put(DBInfo.getColumnNews(), news.get_news());
+        values.put(DBInfo.getColumnPhoto(), news.get_photo());
+        values.put(DBInfo.getColumnAuthor(), news.get_author());
+        values.put(DBInfo.getColumnAuthorbelongs(), news.get_authorbelongs());
+        values.put(DBInfo.getColumnDatetime(), news.get_datetime());
+        values.put(DBInfo.getColumnIsreaded(), 0);
+        values.put(DBInfo.getColumnRelevance(), news.get_relevance());
         values.put(DBInfo.getCOLUMN_URL(), news.get_url());
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -66,9 +66,9 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     public void addAcademicUnits(AcademicUnits academicUnits) {
         ContentValues values = new ContentValues();
-        values.put(DBInfo.getCOLUMN_UnitID(), academicUnits.get_unitid());
-        values.put(DBInfo.getCOLUMN_Unit(), academicUnits.get_unit());
-        values.put(DBInfo.getCOLUMN_IsChecked(), academicUnits.get_ischecked());
+        values.put(DBInfo.getColumnUnitid(), academicUnits.get_unitid());
+        values.put(DBInfo.getColumnUnit(), academicUnits.get_unit());
+        values.put(DBInfo.getColumnIschecked(), academicUnits.get_ischecked());
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(DBInfo.getTABLE_NAME_ACADEMITUNITS(), null, values);
@@ -84,7 +84,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     public List<News> getNews() {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String query = "SELECT *, CASE WHEN (" + DBInfo.getCOLUMN_IsReaded() + " = 0 AND " + DBInfo.getCOLUMN_Relevance() + " = 1) THEN 3 WHEN (" + DBInfo.getCOLUMN_IsReaded() + " = 0) THEN 2 ELSE 1 END AS newsorder FROM " + DBInfo.getTABLE_NAME_NEWS() + " ORDER BY newsorder DESC, " + DBInfo.getCOLUMN_DateTime() + " DESC";
+        String query = "SELECT *, CASE WHEN (" + DBInfo.getColumnIsreaded() + " = 0 AND " + DBInfo.getColumnRelevance() + " = 1) THEN 3 WHEN (" + DBInfo.getColumnIsreaded() + " = 0) THEN 2 ELSE 1 END AS newsorder FROM " + DBInfo.getTABLE_NAME_NEWS() + " ORDER BY newsorder DESC, " + DBInfo.getColumnDatetime() + " DESC";
 
         Cursor cursor = db.rawQuery(query, null);
         ArrayList<News> newslst = new ArrayList<>();
@@ -173,14 +173,14 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     public void editNews(News news) {
         ContentValues values = new ContentValues();
-        values.put(DBInfo.getCOLUMN_Title(), news.get_title());
-        values.put(DBInfo.getCOLUMN_News(), news.get_news());
-        values.put(DBInfo.getCOLUMN_Photo(), news.get_photo());
-        values.put(DBInfo.getCOLUMN_Author(), news.get_author());
-        values.put(DBInfo.getCOLUMN_AuthorBelongs(), news.get_authorbelongs());
-        values.put(DBInfo.getCOLUMN_DateTime(), news.get_datetime());
-        values.put(DBInfo.getCOLUMN_IsReaded(), news.get_isreaded());
-        values.put(DBInfo.getCOLUMN_Relevance(), news.get_relevance());
+        values.put(DBInfo.getColumnTitle(), news.get_title());
+        values.put(DBInfo.getColumnNews(), news.get_news());
+        values.put(DBInfo.getColumnPhoto(), news.get_photo());
+        values.put(DBInfo.getColumnAuthor(), news.get_author());
+        values.put(DBInfo.getColumnAuthorbelongs(), news.get_authorbelongs());
+        values.put(DBInfo.getColumnDatetime(), news.get_datetime());
+        values.put(DBInfo.getColumnIsreaded(), news.get_isreaded());
+        values.put(DBInfo.getColumnRelevance(), news.get_relevance());
         values.put(DBInfo.getCOLUMN_URL(), news.get_url());
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -190,9 +190,9 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     public void editAcademicUnits(AcademicUnits academicUnits) {
         ContentValues values = new ContentValues();
-        values.put(DBInfo.getCOLUMN_UnitID(), academicUnits.get_unitid());
-        values.put(DBInfo.getCOLUMN_Unit(), academicUnits.get_unit());
-        values.put(DBInfo.getCOLUMN_IsChecked(), academicUnits.get_ischecked());
+        values.put(DBInfo.getColumnUnitid(), academicUnits.get_unitid());
+        values.put(DBInfo.getColumnUnit(), academicUnits.get_unit());
+        values.put(DBInfo.getColumnIschecked(), academicUnits.get_ischecked());
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.update(DBInfo.getTABLE_NAME_ACADEMITUNITS(), values, DBInfo.getCOLUMN_ID() + " = " + academicUnits.get_id(), null);
@@ -201,14 +201,14 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     public void readedNews(News news) {
         ContentValues values = new ContentValues();
-        values.put(DBInfo.getCOLUMN_Title(), news.get_title());
-        values.put(DBInfo.getCOLUMN_News(), news.get_news());
-        values.put(DBInfo.getCOLUMN_Photo(), news.get_photo());
-        values.put(DBInfo.getCOLUMN_Author(), news.get_author());
-        values.put(DBInfo.getCOLUMN_AuthorBelongs(), news.get_authorbelongs());
-        values.put(DBInfo.getCOLUMN_DateTime(), news.get_datetime());
-        values.put(DBInfo.getCOLUMN_IsReaded(), 1);
-        values.put(DBInfo.getCOLUMN_Relevance(), news.get_relevance());
+        values.put(DBInfo.getColumnTitle(), news.get_title());
+        values.put(DBInfo.getColumnNews(), news.get_news());
+        values.put(DBInfo.getColumnPhoto(), news.get_photo());
+        values.put(DBInfo.getColumnAuthor(), news.get_author());
+        values.put(DBInfo.getColumnAuthorbelongs(), news.get_authorbelongs());
+        values.put(DBInfo.getColumnDatetime(), news.get_datetime());
+        values.put(DBInfo.getColumnIsreaded(), 1);
+        values.put(DBInfo.getColumnRelevance(), news.get_relevance());
         values.put(DBInfo.getCOLUMN_URL(), "");
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -218,7 +218,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     public Boolean canDisplayNews(News news) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM " + DBInfo.getTABLE_NAME_ACADEMITUNITS() + " WHERE " + DBInfo.getCOLUMN_IsChecked() + " = 1 AND " + DBInfo.getCOLUMN_UnitID() + " = " + news.get_authorbelongs();
+        String query = "SELECT * FROM " + DBInfo.getTABLE_NAME_ACADEMITUNITS() + " WHERE " + DBInfo.getColumnIschecked() + " = 1 AND " + DBInfo.getColumnUnitid() + " = " + news.get_authorbelongs();
 
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.getCount() > 0) {
