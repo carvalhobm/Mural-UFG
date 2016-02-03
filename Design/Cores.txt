@@ -1,0 +1,8 @@
+Logo UFG:
+Azul
+#0067AC
+
+Material Design:
+
+Blue 800
+#1565c0

@@ -1,0 +1,24 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+
+    <style name="ActionBarThemeOverlay" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:background">@color/ColorUFG</item>
+        <item name="android:textColorPrimary">#ffffff</item>
+        <item name="colorControlNormal">#ffffff</item>
+        <item name="colorControlHighlight">#ffffff</item>
+    </style>
+
+    <style name="boldText">
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="normalText">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <color name="ColorUFG">#1565c0</color>
+    <color name="White">#FFFFFF</color>
+
+</resources>

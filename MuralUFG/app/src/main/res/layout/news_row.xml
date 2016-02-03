@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/CardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="1dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/CardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/CardNews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/CardTitle"
+            android:maxLines="2"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/CardAuthorDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/CardIsReaded"
+            android:layout_alignTop="@+id/CardIsReaded"
+            android:layout_below="@+id/CardNews"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@+id/CardIsReaded"
+            android:layout_toStartOf="@+id/CardIsReaded"
+            android:gravity="center_vertical"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/CardIsReaded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/CardNews"
+            android:checked="true"
+            android:clickable="false"
+            android:enabled="true"
+            android:focusable="false" />
+
+        <ImageView
+            android:id="@+id/CardImgUrgent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/CardIsReaded"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/CardIsReaded"
+            android:contentDescription="@string/contentDescriptionImportantMessage"
+            android:src="@drawable/ic_warning_black_24dp" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="br.ufg.inf.muralufg.Inbox_Fragment">
+
+    <item
+        android:id="@+id/actionFilter"
+        android:icon="@drawable/ic_filter_list_white_24dp"
+        android:title="@string/menuFilter"
+        app:showAsAction="ifRoom" />
+</menu>

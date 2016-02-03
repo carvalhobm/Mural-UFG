@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">Mural UFG</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="title_section1">News</string>
+    <string name="title_activity_news_view">News</string>
+    <string name="title_activity_news__filter">News Filter</string>
+
+    <string name="contentDescriptionListIcon">List Icon</string>
+    <string name="contentDescriptionNewsIMG">News Image</string>
+    <string name="contentDescriptionImportantMessage">Important Message</string>
+
+    <string name="snackbarUndo">Undo</string>
+    <string name="snackbarNewsRemoved">News removed.</string>
+
+    <string name="menuFilter">Filter</string>
+
+    <string name="NoNetwork">No Network Connection.</string>
+    <string name="pdLoading">Loading..</string>
+
+    <string-array name="academicunit">
+        <item>Reitoria</item>
+        <item>Escola de Engenharia Civil (EEC)</item>
+        <item>Escola de Engenharia Elétrica, Mecânica e de Computação (EMC)</item>
+        <item>Faculdade de Direito (FD)</item>
+        <item>Faculdade de Educação (FE)</item>
+        <item>Faculdade de Enfermagem (FEN)</item>
+        <item>Faculdade Farmácia (FF)</item>
+        <item>Faculdade de Medicina (FM)</item>
+        <item>Faculdade de Nutrição (Fanut)</item>
+        <item>Faculdade de Odontologia (FO)</item>
+        <item>Instituto de Patologia Tropical e Saúde Pública (IPTSP)</item>
+
+        <item>Centro de Ensino e Pesquisa Aplicada à Educação (Cepae)</item>
+        <item>Escola de Agronomia (EA)</item>
+        <item>Escola de Música e Artes Cênicas (Emac)</item>
+        <item>Escola de Veterinária e Zootecnia (EVZ)</item>
+        <item>Faculdade de Artes Visuais (FAV)</item>
+        <item>Faculdade de Administração, Ciências Contábeis e Ciências Econômicas (FACE)</item>
+        <item>Faculdade de História (FH)</item>
+        <item>Faculdade de Filosofia (Fafil)</item>
+        <item>Faculdade de Ciências Sociais (FCS)</item>
+        <item>Faculdade de Informação e Comunicação</item>
+        <item>Faculdade de Educação Física e Dança (FEFD)</item>
+        <item>Faculdade de Letras (FL)</item>
+        <item>Instituto de Estudos Socioambientais (Iesa)</item>
+        <item>Instituto de Ciências Biológicas (ICB)</item>
+        <item>Instituto de Física (IF)</item>
+        <item>Instituto de Informática (INF)</item>
+        <item>Instituto de Matemática e Estatística (IME)</item>
+        <item>Instituto de Química (IQ)</item>
+
+        <item>Câmpus Aparecida de Goiânia</item>
+        <item>Regional Catalão</item>
+        <item>Regional Goiás</item>
+        <item>Regional Jataí</item>
+    </string-array>
+</resources>
