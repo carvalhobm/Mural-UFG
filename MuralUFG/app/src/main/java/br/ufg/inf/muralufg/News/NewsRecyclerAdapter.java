@@ -1,4 +1,4 @@
-package br.ufg.inf.muralufg.News;
+package br.ufg.inf.muralufg.news;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,9 +15,9 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import br.ufg.inf.muralufg.DB.DBOpenHelper;
+import br.ufg.inf.muralufg.db.DBOpenHelper;
 import br.ufg.inf.muralufg.Inbox_Fragment;
-import br.ufg.inf.muralufg.NewsView.NewsView;
+import br.ufg.inf.muralufg.newsview.NewsView;
 import br.ufg.inf.muralufg.R;
 
 public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapter.NewsViewHolder> {

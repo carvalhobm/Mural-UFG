@@ -1,4 +1,4 @@
-package br.ufg.inf.muralufg.NewsFilter;
+package br.ufg.inf.muralufg.newsfilter;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -8,7 +8,7 @@ import android.widget.ListView;
 
 import java.util.List;
 
-import br.ufg.inf.muralufg.DB.DBOpenHelper;
+import br.ufg.inf.muralufg.db.DBOpenHelper;
 import br.ufg.inf.muralufg.R;
 
 public class NewsFilter extends ActionBarActivity {

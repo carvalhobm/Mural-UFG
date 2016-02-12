@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/White"
     android:orientation="vertical"
-    tools:context="br.ufg.inf.muralufg.NewsFilter.NewsFilter">
+    tools:context="br.ufg.inf.muralufg.newsfilter.NewsFilter">
 
     <include layout="@layout/toolbar" />
 

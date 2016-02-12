@@ -1,4 +1,4 @@
-package br.ufg.inf.muralufg.News;
+package br.ufg.inf.muralufg.news;
 
 import android.content.Context;
 import android.os.AsyncTask;

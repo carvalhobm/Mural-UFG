@@ -1,4 +1,4 @@
-package br.ufg.inf.muralufg.DB;
+package br.ufg.inf.muralufg.db;
 
 import android.database.sqlite.SQLiteDatabase;
 

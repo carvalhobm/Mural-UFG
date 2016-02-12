@@ -1,4 +1,4 @@
-package br.ufg.inf.muralufg.DB;
+package br.ufg.inf.muralufg.db;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,8 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufg.inf.muralufg.News.News;
-import br.ufg.inf.muralufg.NewsFilter.AcademicUnits;
+import br.ufg.inf.muralufg.news.News;
+import br.ufg.inf.muralufg.newsfilter.AcademicUnits;
 
 public class DBOpenHelper extends SQLiteOpenHelper {
     public DBOpenHelper(Context context) {

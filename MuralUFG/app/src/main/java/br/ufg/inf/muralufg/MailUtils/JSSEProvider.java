@@ -1,4 +1,4 @@
-package br.ufg.inf.muralufg.MailUtils;
+package br.ufg.inf.muralufg.mailutils;
 
 import java.security.AccessController;
 import java.security.Provider;

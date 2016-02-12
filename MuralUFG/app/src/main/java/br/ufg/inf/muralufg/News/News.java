@@ -1,4 +1,4 @@
-package br.ufg.inf.muralufg.News;
+package br.ufg.inf.muralufg.news;
 
 public class News {
     private int _id;

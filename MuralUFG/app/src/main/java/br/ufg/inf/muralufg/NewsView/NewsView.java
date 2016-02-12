@@ -1,4 +1,4 @@
-package br.ufg.inf.muralufg.NewsView;
+package br.ufg.inf.muralufg.newsview;
 
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
@@ -17,11 +17,11 @@ import com.squareup.picasso.Picasso;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.ExecutionException;
 
-import br.ufg.inf.muralufg.DB.DBOpenHelper;
+import br.ufg.inf.muralufg.db.DBOpenHelper;
 import br.ufg.inf.muralufg.Inbox_Activity;
 import br.ufg.inf.muralufg.Inbox_Fragment;
-import br.ufg.inf.muralufg.News.News;
-import br.ufg.inf.muralufg.News.NewsJSON;
+import br.ufg.inf.muralufg.news.News;
+import br.ufg.inf.muralufg.news.NewsJSON;
 import br.ufg.inf.muralufg.R;
 
 public class NewsView extends ActionBarActivity {

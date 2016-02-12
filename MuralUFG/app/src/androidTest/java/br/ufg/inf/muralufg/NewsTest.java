@@ -4,8 +4,8 @@ import junit.framework.TestCase;
 
 import java.util.concurrent.ExecutionException;
 
-import br.ufg.inf.muralufg.News.News;
-import br.ufg.inf.muralufg.News.NewsJSON;
+import br.ufg.inf.muralufg.news.News;
+import br.ufg.inf.muralufg.news.NewsJSON;
 
 public class NewsTest extends TestCase{
 

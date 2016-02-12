@@ -1,4 +1,4 @@
-package br.ufg.inf.muralufg.NewsFilter;
+package br.ufg.inf.muralufg.newsfilter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import android.widget.CompoundButton;
 
 import java.util.List;
 
-import br.ufg.inf.muralufg.DB.DBOpenHelper;
+import br.ufg.inf.muralufg.db.DBOpenHelper;
 import br.ufg.inf.muralufg.R;
 
 class AcademicUnitsAdapter extends ArrayAdapter<AcademicUnits> {

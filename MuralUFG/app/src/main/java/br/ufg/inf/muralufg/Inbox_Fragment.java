@@ -28,11 +28,11 @@ import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 import java.util.List;
 import java.util.Locale;
 
-import br.ufg.inf.muralufg.DB.DBOpenHelper;
-import br.ufg.inf.muralufg.News.News;
-import br.ufg.inf.muralufg.News.NewsRecyclerAdapter;
-import br.ufg.inf.muralufg.NewsFilter.AcademicUnits;
-import br.ufg.inf.muralufg.NewsFilter.NewsFilter;
+import br.ufg.inf.muralufg.db.DBOpenHelper;
+import br.ufg.inf.muralufg.news.News;
+import br.ufg.inf.muralufg.news.NewsRecyclerAdapter;
+import br.ufg.inf.muralufg.newsfilter.AcademicUnits;
+import br.ufg.inf.muralufg.newsfilter.NewsFilter;
 
 
 public class Inbox_Fragment extends Fragment {

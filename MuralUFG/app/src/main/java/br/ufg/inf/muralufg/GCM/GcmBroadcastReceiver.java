@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.ufg.inf.muralufg.GCM;
+package br.ufg.inf.muralufg.gcm;
 
 import android.app.Activity;
 import android.content.ComponentName;

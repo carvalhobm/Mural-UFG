@@ -1,4 +1,4 @@
-package br.ufg.inf.muralufg.MailUtils;
+package br.ufg.inf.muralufg.mailutils;
 
 import android.util.Log;
 

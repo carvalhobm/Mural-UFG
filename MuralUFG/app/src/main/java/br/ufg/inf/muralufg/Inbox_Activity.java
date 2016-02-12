@@ -20,7 +20,7 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import java.io.IOException;
 
-import br.ufg.inf.muralufg.MailUtils.SendEmailTask;
+import br.ufg.inf.muralufg.mailutils.SendEmailTask;
 
 
 public class Inbox_Activity extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {

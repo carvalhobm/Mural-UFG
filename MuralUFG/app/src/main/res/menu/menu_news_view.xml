@@ -1,2 +1,2 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
-    tools:context="br.ufg.inf.muralufg.NewsView.NewsView"></menu>
+    tools:context="br.ufg.inf.muralufg.newsview.NewsView"></menu>
