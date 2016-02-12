@@ -160,19 +160,8 @@ public class Inbox_Fragment extends Fragment {
         RVNews = (RecyclerView) rootview.findViewById(R.id.RVNews);
         RVNews.setLayoutManager(new LinearLayoutManager(context));
 
-
         db = new DBOpenHelper(context);
         news = db.getNews();
-
-        ImageView imgBG = (ImageView) rootview.findViewById(R.id.imgBG);
-        if (news.size() == 0) {
-            if (Locale.getDefault().toString().equals("pt_BR") || Locale.getDefault().toString().equals("pt_PT"))
-                imgBG.setImageResource(R.drawable.ufg_no_news_ptbr);
-            else
-                imgBG.setImageResource(R.drawable.ufg_no_news_en);
-        }
-        else
-            imgBG.setImageDrawable(null);
 
         for (int i = news.size() - 1; i >= 0; i--) {
             if (news.get(i).get_relevance() == 1)
@@ -183,6 +172,16 @@ public class Inbox_Fragment extends Fragment {
 
         newsRecyclerAdapter = new NewsRecyclerAdapter(context, news);
         RVNews.setAdapter(newsRecyclerAdapter);
+
+        ImageView imgBG = (ImageView) rootview.findViewById(R.id.imgBG);
+        if (newsRecyclerAdapter.getItemCount() == 0) {
+            if (Locale.getDefault().toString().equals("pt_BR") || Locale.getDefault().toString().equals("pt_PT"))
+                imgBG.setImageResource(R.drawable.ufg_no_news_ptbr);
+            else
+                imgBG.setImageResource(R.drawable.ufg_no_news_en);
+        }
+        else
+            imgBG.setImageDrawable(null);
     }
 
     @Override
