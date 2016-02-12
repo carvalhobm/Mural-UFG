@@ -22,7 +22,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
@@ -175,7 +174,7 @@ public class Inbox_Fragment extends Fragment {
 
         ImageView imgBG = (ImageView) rootview.findViewById(R.id.imgBG);
         if (newsRecyclerAdapter.getItemCount() == 0) {
-            if (Locale.getDefault().toString().equals("pt_BR") || Locale.getDefault().toString().equals("pt_PT"))
+            if ("pt_Br".equals(Locale.getDefault().toString()) || "pt_PT".equals(Locale.getDefault().toString()))
                 imgBG.setImageResource(R.drawable.ufg_no_news_ptbr);
             else
                 imgBG.setImageResource(R.drawable.ufg_no_news_en);
