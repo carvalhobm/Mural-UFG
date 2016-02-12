@@ -18,8 +18,8 @@ import java.text.SimpleDateFormat;
 import java.util.concurrent.ExecutionException;
 
 import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
-import br.ufg.inf.muralufg.Inbox_Activity;
-import br.ufg.inf.muralufg.Inbox_Fragment;
+import br.ufg.inf.muralufg.InboxActivity;
+import br.ufg.inf.muralufg.InboxFragment;
 import br.ufg.inf.muralufg.news.News;
 import br.ufg.inf.muralufg.news.NewsJSON;
 import br.ufg.inf.muralufg.R;
@@ -41,9 +41,9 @@ public class NewsView extends ActionBarActivity {
         DBOpenHelper db = new DBOpenHelper(getBaseContext());
         News news = db.getNews(ID);
 
-        if (news.get_isreaded() == 0 && !Inbox_Fragment.isOnline(this)) {
+        if (news.get_isreaded() == 0 && !InboxFragment.isOnline(this)) {
             finish();
-            Intent intent = new Intent(this, Inbox_Activity.class);
+            Intent intent = new Intent(this, InboxActivity.class);
             startActivity(intent);
             return;
         }

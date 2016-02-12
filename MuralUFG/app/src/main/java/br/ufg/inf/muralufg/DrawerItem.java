@@ -1,17 +1,17 @@
 package br.ufg.inf.muralufg;
 
 class DrawerItem {
-    private final String ItemName;
+    private final String itemName;
     private final int imgResID;
 
     public DrawerItem(String itemName, int imgResID) {
         super();
-        ItemName = itemName;
+        this.itemName = itemName;
         this.imgResID = imgResID;
     }
 
     public String getItemName() {
-        return ItemName;
+        return itemName;
     }
 
     public int getImgResID() {

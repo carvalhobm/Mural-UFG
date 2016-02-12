@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
-import br.ufg.inf.muralufg.Inbox_Fragment;
+import br.ufg.inf.muralufg.InboxFragment;
 import br.ufg.inf.muralufg.news.view.NewsView;
 import br.ufg.inf.muralufg.R;
 
@@ -102,12 +102,12 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
                 @Override
                 public void onClick(View v) {
 
-                    if (Inbox_Fragment.snackbar != null && Inbox_Fragment.snackBarView.getVisibility() == View.VISIBLE) {
-                        Inbox_Fragment.snackbar.dismiss();
-                    } else if (db.getNews(id).get_isreaded() == 1 || Inbox_Fragment.isOnline(context))
+                    if (InboxFragment.snackbar != null && InboxFragment.snackBarView.getVisibility() == View.VISIBLE) {
+                        InboxFragment.snackbar.dismiss();
+                    } else if (db.getNews(id).get_isreaded() == 1 || InboxFragment.isOnline(context))
                         context.startActivity(new Intent(context, NewsView.class).putExtra("id", id));
                     else
-                        Snackbar.make(Inbox_Fragment.coordinatorLayoutView, context.getString(R.string.NoNetwork), Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(InboxFragment.coordinatorLayoutView, context.getString(R.string.NoNetwork), Snackbar.LENGTH_LONG).show();
                 }
             });
         }
