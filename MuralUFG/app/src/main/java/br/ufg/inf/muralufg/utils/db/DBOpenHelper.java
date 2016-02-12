@@ -66,9 +66,9 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     public void addAcademicUnits(AcademicUnits academicUnits) {
         ContentValues values = new ContentValues();
-        values.put(DBInfo.getColumnUnitid(), academicUnits.get_unitid());
-        values.put(DBInfo.getColumnUnit(), academicUnits.get_unit());
-        values.put(DBInfo.getColumnIschecked(), academicUnits.get_ischecked());
+        values.put(DBInfo.getColumnUnitid(), academicUnits.getUnitID());
+        values.put(DBInfo.getColumnUnit(), academicUnits.getUnit());
+        values.put(DBInfo.getColumnIschecked(), academicUnits.getIsChecked());
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(DBInfo.getTABLE_NAME_ACADEMITUNITS(), null, values);
@@ -117,10 +117,10 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             for (int i = 0; i < cursor.getCount(); i++) {
                 cursor.moveToPosition(i);
                 AcademicUnits academicunits = new AcademicUnits();
-                academicunits.set_id(cursor.getInt(0));
-                academicunits.set_unitid(cursor.getInt(1));
-                academicunits.set_unit(cursor.getString(2));
-                academicunits.set_ischecked(cursor.getInt(3));
+                academicunits.setId(cursor.getInt(0));
+                academicunits.setUnitID(cursor.getInt(1));
+                academicunits.setUnit(cursor.getString(2));
+                academicunits.setIsChecked(cursor.getInt(3));
 
                 academicunitslst.add(academicunits);
             }
@@ -180,12 +180,12 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     public void editAcademicUnits(AcademicUnits academicUnits) {
         ContentValues values = new ContentValues();
-        values.put(DBInfo.getColumnUnitid(), academicUnits.get_unitid());
-        values.put(DBInfo.getColumnUnit(), academicUnits.get_unit());
-        values.put(DBInfo.getColumnIschecked(), academicUnits.get_ischecked());
+        values.put(DBInfo.getColumnUnitid(), academicUnits.getUnitID());
+        values.put(DBInfo.getColumnUnit(), academicUnits.getUnit());
+        values.put(DBInfo.getColumnIschecked(), academicUnits.getIsChecked());
 
         SQLiteDatabase db = this.getWritableDatabase();
-        db.update(DBInfo.getTABLE_NAME_ACADEMITUNITS(), values, DBInfo.getCOLUMN_ID() + " = " + academicUnits.get_id(), null);
+        db.update(DBInfo.getTABLE_NAME_ACADEMITUNITS(), values, DBInfo.getCOLUMN_ID() + " = " + academicUnits.getId(), null);
         db.close();
     }
 

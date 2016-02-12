@@ -61,9 +61,9 @@ public class NewsJSON {
             String result = readJSONFeed(urls[0]);
             try {
                 JSONObject jsonObject = new JSONObject(result);
-                JSONArray NewsItems = new JSONArray(jsonObject.getString("data"));
+                JSONArray newsItems = new JSONArray(jsonObject.getString("data"));
 
-                JSONObject newscontent = NewsItems.getJSONObject(0);
+                JSONObject newscontent = newsItems.getJSONObject(0);
 
                 news.setNews(newscontent.getString("news"));
                 news.setPhoto(newscontent.getString("photo"));

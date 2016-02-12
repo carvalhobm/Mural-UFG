@@ -1,56 +1,49 @@
 package br.ufg.inf.muralufg.news.filter;
 
 public class AcademicUnits {
-    private int _id;
-    private int _unitid;
-    private String _unit;
-    private int _ischecked;
+    private int id;
+    private int unitID;
+    private String unit;
+    private int isChecked;
 
     public AcademicUnits() {
     }
 
-    public AcademicUnits(int id, int unitid, String unit, int ischecked) {
-        this._id = id;
-        this._unitid = unitid;
-        this._unit = unit;
-        this._ischecked = ischecked;
+    public AcademicUnits(int unitID, String unit, int isChecked) {
+        this.unitID = unitID;
+        this.unit = unit;
+        this.isChecked = isChecked;
     }
 
-    public AcademicUnits(int unitid, String unit, int ischecked) {
-        this._unitid = unitid;
-        this._unit = unit;
-        this._ischecked = ischecked;
+    public int getId() {
+        return id;
     }
 
-    public int get_id() {
-        return _id;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void set_id(int _id) {
-        this._id = _id;
+    public int getUnitID() {
+        return unitID;
     }
 
-    public int get_unitid() {
-        return _unitid;
+    public void setUnitID(int unitID) {
+        this.unitID = unitID;
     }
 
-    public void set_unitid(int _unitid) {
-        this._unitid = _unitid;
+    public String getUnit() {
+        return unit;
     }
 
-    public String get_unit() {
-        return _unit;
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
-    public void set_unit(String _unit) {
-        this._unit = _unit;
+    public int getIsChecked() {
+        return isChecked;
     }
 
-    public int get_ischecked() {
-        return _ischecked;
-    }
-
-    public void set_ischecked(int _ischecked) {
-        this._ischecked = _ischecked;
+    public void setIsChecked(int isChecked) {
+        this.isChecked = isChecked;
     }
 }

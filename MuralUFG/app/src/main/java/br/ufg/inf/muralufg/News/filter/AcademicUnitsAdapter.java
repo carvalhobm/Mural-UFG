@@ -30,8 +30,8 @@ class AcademicUnitsAdapter extends ArrayAdapter<AcademicUnits> {
         convertView = inflater.inflate(R.layout.filter_row, parent, false);
         CheckBox cb = (CheckBox) convertView.findViewById(R.id.FilterCB);
 
-        cb.setText(academicUnitslst.get(position).get_unit());
-        if (academicUnitslst.get(position).get_ischecked() == 1)
+        cb.setText(academicUnitslst.get(position).getUnit());
+        if (academicUnitslst.get(position).getIsChecked() == 1)
             cb.setChecked(true);
         else
             cb.setChecked(false);
@@ -41,10 +41,10 @@ class AcademicUnitsAdapter extends ArrayAdapter<AcademicUnits> {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 DBOpenHelper db = new DBOpenHelper(context);
                 AcademicUnits academicUnits = academicUnitslst.get(position);
-                if (academicUnits.get_ischecked() == 0)
-                    academicUnits.set_ischecked(1);
+                if (academicUnits.getIsChecked() == 0)
+                    academicUnits.setIsChecked(1);
                 else
-                    academicUnits.set_ischecked(0);
+                    academicUnits.setIsChecked(0);
                 db.editAcademicUnits(academicUnits);
             }
         });
