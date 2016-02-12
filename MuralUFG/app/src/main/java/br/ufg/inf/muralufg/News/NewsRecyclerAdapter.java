@@ -40,32 +40,32 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
     @Override
     public void onBindViewHolder(NewsViewHolder newsViewHolder, int i) {
         try {
-            newsViewHolder.id = news.get(i).get_id();
+            newsViewHolder.id = news.get(i).getId();
         } catch (Exception e) {
             return;
         }
 
-        if (news.get(i).get_isreaded() == 0) {
+        if (news.get(i).getIsReaded() == 0) {
             newsViewHolder.title.setTextAppearance(context, R.style.boldText);
             newsViewHolder.news.setTextAppearance(context, R.style.boldText);
             newsViewHolder.authordatetime.setTextAppearance(context, R.style.boldText);
             newsViewHolder.isreaded.setEnabled(false);
-            if (news.get(i).get_relevance() != 1)
+            if (news.get(i).getRelevance() != 1)
                 newsViewHolder.isUrgent.setVisibility(View.GONE);
         } else {
             newsViewHolder.title.setTextAppearance(context, R.style.normalText);
             newsViewHolder.news.setTextAppearance(context, R.style.normalText);
             newsViewHolder.authordatetime.setTextAppearance(context, R.style.normalText);
             newsViewHolder.isreaded.setEnabled(true);
-            if (news.get(i).get_relevance() != 1)
+            if (news.get(i).getRelevance() != 1)
                 newsViewHolder.isUrgent.setVisibility(View.GONE);
         }
 
-        newsViewHolder.title.setText(news.get(i).get_title());
-        newsViewHolder.news.setText(news.get(i).get_news());
+        newsViewHolder.title.setText(news.get(i).getTitle());
+        newsViewHolder.news.setText(news.get(i).getNews());
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-        newsViewHolder.authordatetime.setText(news.get(i).get_author() + " - " + simpleDateFormat.format(Long.parseLong(news.get(i).get_datetime())));
+        newsViewHolder.authordatetime.setText(news.get(i).getAuthor() + " - " + simpleDateFormat.format(Long.parseLong(news.get(i).getDatetime())));
     }
 
     @Override
@@ -104,7 +104,7 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
 
                     if (InboxFragment.snackbar != null && InboxFragment.snackBarView.getVisibility() == View.VISIBLE) {
                         InboxFragment.snackbar.dismiss();
-                    } else if (db.getNews(id).get_isreaded() == 1 || InboxFragment.isOnline(context))
+                    } else if (db.getNews(id).getIsReaded() == 1 || InboxFragment.isOnline(context))
                         context.startActivity(new Intent(context, NewsView.class).putExtra("id", id));
                     else
                         Snackbar.make(InboxFragment.coordinatorLayoutView, context.getString(R.string.NoNetwork), Snackbar.LENGTH_LONG).show();

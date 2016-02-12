@@ -1,120 +1,120 @@
 package br.ufg.inf.muralufg.news;
 
 public class News {
-    private int _id;
-    private String _title;
-    private String _news;
-    private String _photo;
-    private int _authorbelongs;
-    private String _author;
-    private String _datetime;
-    private int _isreaded;
-    private int _relevance;
-    private String _url;
+    private int id;
+    private String title;
+    private String news;
+    private String photo;
+    private int authorBelongs;
+    private String author;
+    private String datetime;
+    private int isReaded;
+    private int relevance;
+    private String url;
 
     public News() {
     }
 
-    public News(int id, String title, String news, String photo, String author, int authorbelongs, String datetime, int relevance, String url) {
-        this._id = id;
-        this._title = title;
-        this._news = news;
-        this._photo = photo;
-        this._author = author;
-        this._authorbelongs = authorbelongs;
-        this._datetime = datetime;
-        this._relevance = relevance;
-        this._url = url;
+    public News(int id, String title, String news, String photo, String author, int authorBelongs, String datetime, int relevance, String url) {
+        this.id = id;
+        this.title = title;
+        this.news = news;
+        this.photo = photo;
+        this.author = author;
+        this.authorBelongs = authorBelongs;
+        this.datetime = datetime;
+        this.relevance = relevance;
+        this.url = url;
     }
 
-    public News(String title, String news, String photo, String author, int authorbelongs, String datetime, int relevance, String url) {
-        this._title = title;
-        this._news = news;
-        this._photo = photo;
-        this._author = author;
-        this._authorbelongs = authorbelongs;
-        this._datetime = datetime;
-        this._relevance = relevance;
-        this._url = url;
+    public News(String title, String news, String photo, String author, int authorBelongs, String datetime, int relevance, String url) {
+        this.title = title;
+        this.news = news;
+        this.photo = photo;
+        this.author = author;
+        this.authorBelongs = authorBelongs;
+        this.datetime = datetime;
+        this.relevance = relevance;
+        this.url = url;
     }
 
-    public int get_id() {
-        return _id;
+    public int getId() {
+        return id;
     }
 
-    public void set_id(int _id) {
-        this._id = _id;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String get_title() {
-        return _title;
+    public String getTitle() {
+        return title;
     }
 
-    public void set_title(String _title) {
-        this._title = _title;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String get_news() {
-        return _news;
+    public String getNews() {
+        return news;
     }
 
-    public void set_news(String _news) {
-        this._news = _news;
+    public void setNews(String news) {
+        this.news = news;
     }
 
-    public String get_photo() {
-        return _photo;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void set_photo(String _photo) {
-        this._photo = _photo;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
-    public String get_author() {
-        return _author;
+    public String getAuthor() {
+        return author;
     }
 
-    public void set_author(String _author) {
-        this._author = _author;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public int get_authorbelongs() {
-        return _authorbelongs;
+    public int getAuthorBelongs() {
+        return authorBelongs;
     }
 
-    public void set_authorbelongs(int _authorbelongs) {
-        this._authorbelongs = _authorbelongs;
+    public void setAuthorBelongs(int authorBelongs) {
+        this.authorBelongs = authorBelongs;
     }
 
-    public String get_datetime() {
-        return _datetime;
+    public String getDatetime() {
+        return datetime;
     }
 
-    public void set_datetime(String _datetime) {
-        this._datetime = _datetime;
+    public void setDatetime(String datetime) {
+        this.datetime = datetime;
     }
 
-    public int get_isreaded() {
-        return _isreaded;
+    public int getIsReaded() {
+        return isReaded;
     }
 
-    public void set_isreaded(int _isreaded) {
-        this._isreaded = _isreaded;
+    public void setIsReaded(int isReaded) {
+        this.isReaded = isReaded;
     }
 
-    public int get_relevance() {
-        return _relevance;
+    public int getRelevance() {
+        return relevance;
     }
 
-    public void set_relevance(int _relevance) {
-        this._relevance = _relevance;
+    public void setRelevance(int relevance) {
+        this.relevance = relevance;
     }
 
-    public String get_url() {
-        return _url;
+    public String getUrl() {
+        return url;
     }
 
-    public void set_url(String _url) {
-        this._url = _url;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

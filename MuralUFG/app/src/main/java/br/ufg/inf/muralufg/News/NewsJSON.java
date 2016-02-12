@@ -28,7 +28,7 @@ public class NewsJSON {
     }
 
     public News getNews(News news) throws ExecutionException, InterruptedException {
-        new ReadNews().execute(news.get_url()).get();
+        new ReadNews().execute(news.getUrl()).get();
         return news;
     }
 
@@ -65,8 +65,8 @@ public class NewsJSON {
 
                 JSONObject newscontent = NewsItems.getJSONObject(0);
 
-                news.set_news(newscontent.getString("news"));
-                news.set_photo(newscontent.getString("photo"));
+                news.setNews(newscontent.getString("news"));
+                news.setPhoto(newscontent.getString("photo"));
 
             } catch (Exception e) {
             }

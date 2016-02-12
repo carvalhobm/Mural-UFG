@@ -13,7 +13,7 @@ public class NewsTest extends TestCase{
         News news = new News("Title", "News", "" ,"Author", 0, "1435264970000", 0, "https://dl.dropboxusercontent.com/s/plt99l1zd5ux7eu/01.json");
         NewsJSON json = new NewsJSON(null, news);
         news = json.getNews(news);
-        Boolean resulBoolean = news.get_photo().isEmpty();
+        Boolean resulBoolean = news.getPhoto().isEmpty();
         assertFalse(resulBoolean);
     }
 }

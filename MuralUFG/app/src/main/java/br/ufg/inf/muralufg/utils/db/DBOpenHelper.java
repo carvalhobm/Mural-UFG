@@ -48,15 +48,15 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     public int addNews(News news) {
         ContentValues values = new ContentValues();
-        values.put(DBInfo.getColumnTitle(), news.get_title());
-        values.put(DBInfo.getColumnNews(), news.get_news());
-        values.put(DBInfo.getColumnPhoto(), news.get_photo());
-        values.put(DBInfo.getColumnAuthor(), news.get_author());
-        values.put(DBInfo.getColumnAuthorbelongs(), news.get_authorbelongs());
-        values.put(DBInfo.getColumnDatetime(), news.get_datetime());
+        values.put(DBInfo.getColumnTitle(), news.getTitle());
+        values.put(DBInfo.getColumnNews(), news.getNews());
+        values.put(DBInfo.getColumnPhoto(), news.getPhoto());
+        values.put(DBInfo.getColumnAuthor(), news.getAuthor());
+        values.put(DBInfo.getColumnAuthorbelongs(), news.getAuthorBelongs());
+        values.put(DBInfo.getColumnDatetime(), news.getDatetime());
         values.put(DBInfo.getColumnIsreaded(), 0);
-        values.put(DBInfo.getColumnRelevance(), news.get_relevance());
-        values.put(DBInfo.getCOLUMN_URL(), news.get_url());
+        values.put(DBInfo.getColumnRelevance(), news.getRelevance());
+        values.put(DBInfo.getCOLUMN_URL(), news.getUrl());
 
         SQLiteDatabase db = this.getWritableDatabase();
         int id = (int) db.insert(DBInfo.getTABLE_NAME_NEWS(), null, values);
@@ -142,16 +142,16 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         if (cursor.getCount() > 0) {
             for (int i = 0; i < cursor.getCount(); i++) {
                 cursor.moveToPosition(i);
-                news.set_id(cursor.getInt(0));
-                news.set_title(cursor.getString(1));
-                news.set_news(cursor.getString(2));
-                news.set_photo(cursor.getString(3));
-                news.set_author(cursor.getString(4));
-                news.set_authorbelongs(cursor.getInt(5));
-                news.set_datetime(cursor.getString(6));
-                news.set_isreaded(cursor.getInt(7));
-                news.set_relevance(cursor.getInt(8));
-                news.set_url(cursor.getString(9));
+                news.setId(cursor.getInt(0));
+                news.setTitle(cursor.getString(1));
+                news.setNews(cursor.getString(2));
+                news.setPhoto(cursor.getString(3));
+                news.setAuthor(cursor.getString(4));
+                news.setAuthorBelongs(cursor.getInt(5));
+                news.setDatetime(cursor.getString(6));
+                news.setIsReaded(cursor.getInt(7));
+                news.setRelevance(cursor.getInt(8));
+                news.setUrl(cursor.getString(9));
             }
             cursor.close();
         } else {
@@ -163,18 +163,18 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     public void editNews(News news) {
         ContentValues values = new ContentValues();
-        values.put(DBInfo.getColumnTitle(), news.get_title());
-        values.put(DBInfo.getColumnNews(), news.get_news());
-        values.put(DBInfo.getColumnPhoto(), news.get_photo());
-        values.put(DBInfo.getColumnAuthor(), news.get_author());
-        values.put(DBInfo.getColumnAuthorbelongs(), news.get_authorbelongs());
-        values.put(DBInfo.getColumnDatetime(), news.get_datetime());
-        values.put(DBInfo.getColumnIsreaded(), news.get_isreaded());
-        values.put(DBInfo.getColumnRelevance(), news.get_relevance());
-        values.put(DBInfo.getCOLUMN_URL(), news.get_url());
+        values.put(DBInfo.getColumnTitle(), news.getTitle());
+        values.put(DBInfo.getColumnNews(), news.getNews());
+        values.put(DBInfo.getColumnPhoto(), news.getPhoto());
+        values.put(DBInfo.getColumnAuthor(), news.getAuthor());
+        values.put(DBInfo.getColumnAuthorbelongs(), news.getAuthorBelongs());
+        values.put(DBInfo.getColumnDatetime(), news.getDatetime());
+        values.put(DBInfo.getColumnIsreaded(), news.getIsReaded());
+        values.put(DBInfo.getColumnRelevance(), news.getRelevance());
+        values.put(DBInfo.getCOLUMN_URL(), news.getUrl());
 
         SQLiteDatabase db = this.getWritableDatabase();
-        db.update(DBInfo.getTABLE_NAME_NEWS(), values, DBInfo.getCOLUMN_ID() + " = " + news.get_id(), null);
+        db.update(DBInfo.getTABLE_NAME_NEWS(), values, DBInfo.getCOLUMN_ID() + " = " + news.getId(), null);
         db.close();
     }
 
@@ -191,24 +191,24 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     public void readedNews(News news) {
         ContentValues values = new ContentValues();
-        values.put(DBInfo.getColumnTitle(), news.get_title());
-        values.put(DBInfo.getColumnNews(), news.get_news());
-        values.put(DBInfo.getColumnPhoto(), news.get_photo());
-        values.put(DBInfo.getColumnAuthor(), news.get_author());
-        values.put(DBInfo.getColumnAuthorbelongs(), news.get_authorbelongs());
-        values.put(DBInfo.getColumnDatetime(), news.get_datetime());
+        values.put(DBInfo.getColumnTitle(), news.getTitle());
+        values.put(DBInfo.getColumnNews(), news.getNews());
+        values.put(DBInfo.getColumnPhoto(), news.getPhoto());
+        values.put(DBInfo.getColumnAuthor(), news.getAuthor());
+        values.put(DBInfo.getColumnAuthorbelongs(), news.getAuthorBelongs());
+        values.put(DBInfo.getColumnDatetime(), news.getDatetime());
         values.put(DBInfo.getColumnIsreaded(), 1);
-        values.put(DBInfo.getColumnRelevance(), news.get_relevance());
+        values.put(DBInfo.getColumnRelevance(), news.getRelevance());
         values.put(DBInfo.getCOLUMN_URL(), "");
 
         SQLiteDatabase db = this.getWritableDatabase();
-        db.update(DBInfo.getTABLE_NAME_NEWS(), values, DBInfo.getCOLUMN_ID() + " = " + news.get_id(), null);
+        db.update(DBInfo.getTABLE_NAME_NEWS(), values, DBInfo.getCOLUMN_ID() + " = " + news.getId(), null);
         db.close();
     }
 
     public Boolean canDisplayNews(News news) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM " + DBInfo.getTABLE_NAME_ACADEMITUNITS() + " WHERE " + DBInfo.getColumnIschecked() + " = 1 AND " + DBInfo.getColumnUnitid() + " = " + news.get_authorbelongs();
+        String query = "SELECT * FROM " + DBInfo.getTABLE_NAME_ACADEMITUNITS() + " WHERE " + DBInfo.getColumnIschecked() + " = 1 AND " + DBInfo.getColumnUnitid() + " = " + news.getAuthorBelongs();
 
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.getCount() > 0) {

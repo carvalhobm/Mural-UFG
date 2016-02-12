@@ -163,7 +163,7 @@ public class InboxFragment extends Fragment {
         news = db.getNews();
 
         for (int i = news.size() - 1; i >= 0; i--) {
-            if (news.get(i).get_relevance() == 1)
+            if (news.get(i).getRelevance() == 1)
                 continue;
             if (!db.canDisplayNews(news.get(i)))
                 news.remove(i);

@@ -73,7 +73,7 @@ public class GcmIntentService extends IntentService {
         DBOpenHelper db = new DBOpenHelper(getApplicationContext());
 
         News news = new News(extras.get("title").toString(), extras.get("news").toString(), "", extras.get("author").toString(), Integer.parseInt(extras.get("authorbelongs").toString()), extras.get("datetime").toString(), Integer.parseInt(extras.get("relevance").toString()), extras.get("url").toString());
-        if (news.get_relevance() == 0 && !db.canDisplayNews(news))
+        if (news.getRelevance() == 0 && !db.canDisplayNews(news))
             return;
 
         NOTIFICATION_ID = db.addNews(news);

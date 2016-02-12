@@ -41,7 +41,7 @@ public class NewsView extends ActionBarActivity {
         DBOpenHelper db = new DBOpenHelper(getBaseContext());
         News news = db.getNews(ID);
 
-        if (news.get_isreaded() == 0 && !InboxFragment.isOnline(this)) {
+        if (news.getIsReaded() == 0 && !InboxFragment.isOnline(this)) {
             finish();
             Intent intent = new Intent(this, InboxActivity.class);
             startActivity(intent);
@@ -65,10 +65,10 @@ public class NewsView extends ActionBarActivity {
 
     private void Populate(DBOpenHelper db, News news) throws ExecutionException, InterruptedException {
         NotificationManager manager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.cancel(news.get_id());
+        manager.cancel(news.getId());
 
-        if (news.get_isreaded() == 0) {
-            progressDialog = ProgressDialog.show(this, news.get_title(), getString(R.string.pdLoading), true, true);
+        if (news.getIsReaded() == 0) {
+            progressDialog = ProgressDialog.show(this, news.getTitle(), getString(R.string.pdLoading), true, true);
             NewsJSON json = new NewsJSON(getApplicationContext(), news);
             news = json.getNews(news);
             db.editNews(news);
@@ -78,20 +78,20 @@ public class NewsView extends ActionBarActivity {
 
         ImageView NewsIMG = (ImageView) findViewById(R.id.NewsIMG);
 
-        if (news.get_photo().length() > 0) {
-            Picasso.with(getApplicationContext()).load(news.get_photo()).into(NewsIMG);
+        if (news.getPhoto().length() > 0) {
+            Picasso.with(getApplicationContext()).load(news.getPhoto()).into(NewsIMG);
         } else {
             NewsIMG.setVisibility(View.GONE);
         }
 
         TextView NewsTitle = (TextView) findViewById(R.id.NewsTitle);
-        NewsTitle.setText(news.get_title());
+        NewsTitle.setText(news.getTitle());
 
         TextView NewsAuthorDateTime = (TextView) findViewById(R.id.NewsAuthorDateTime);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-        NewsAuthorDateTime.setText(news.get_author() + " - " + simpleDateFormat.format(Long.parseLong(news.get_datetime())));
+        NewsAuthorDateTime.setText(news.getAuthor() + " - " + simpleDateFormat.format(Long.parseLong(news.getDatetime())));
 
         TextView NewsNews = (TextView) findViewById(R.id.NewsNews);
-        NewsNews.setText(news.get_news());
+        NewsNews.setText(news.getNews());
     }
 }
