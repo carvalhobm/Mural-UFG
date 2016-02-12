@@ -92,17 +92,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         if (cursor.getCount() > 0) {
             for (int i = 0; i < cursor.getCount(); i++) {
                 cursor.moveToPosition(i);
-                News news = new News();
-                news.set_id(cursor.getInt(0));
-                news.set_title(cursor.getString(1));
-                news.set_news(cursor.getString(2));
-                news.set_photo(cursor.getString(3));
-                news.set_author(cursor.getString(4));
-                news.set_authorbelongs(cursor.getInt(5));
-                news.set_datetime(cursor.getString(6));
-                news.set_isreaded(cursor.getInt(7));
-                news.set_relevance(cursor.getInt(8));
-                news.set_url(cursor.getString(9));
+                News news = getNews(cursor.getInt(0));
 
                 newslst.add(news);
             }
