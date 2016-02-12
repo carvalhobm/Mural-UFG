@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package br.ufg.inf.muralufg.gcm;
+package br.ufg.inf.muralufg.utils.gcm;
 
 import android.app.IntentService;
 import android.app.Notification;
@@ -29,9 +29,9 @@ import android.provider.Settings;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-import br.ufg.inf.muralufg.db.DBOpenHelper;
+import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
 import br.ufg.inf.muralufg.news.News;
-import br.ufg.inf.muralufg.newsview.NewsView;
+import br.ufg.inf.muralufg.news.view.NewsView;
 import br.ufg.inf.muralufg.R;
 
 /**

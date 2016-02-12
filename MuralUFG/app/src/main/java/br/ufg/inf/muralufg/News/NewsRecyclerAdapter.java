@@ -15,9 +15,9 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import br.ufg.inf.muralufg.db.DBOpenHelper;
+import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
 import br.ufg.inf.muralufg.Inbox_Fragment;
-import br.ufg.inf.muralufg.newsview.NewsView;
+import br.ufg.inf.muralufg.news.view.NewsView;
 import br.ufg.inf.muralufg.R;
 
 public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapter.NewsViewHolder> {

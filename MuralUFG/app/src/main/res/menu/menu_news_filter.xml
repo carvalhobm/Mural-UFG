@@ -1,2 +1,2 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
-    tools:context="br.ufg.inf.muralufg.newsfilter.NewsFilter"></menu>
+    tools:context=".news.filter.NewsFilter"></menu>

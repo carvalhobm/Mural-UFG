@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".newsview.NewsView"
+            android:name=".news.view.NewsView"
             android:label="@string/title_activity_news_view"
             android:parentActivityName=".Inbox_Activity">
             <meta-data
@@ -42,7 +42,7 @@
             android:value="@integer/google_play_services_version" />
 
         <receiver
-            android:name=".gcm.GcmBroadcastReceiver"
+            android:name=".utils.gcm.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -51,10 +51,10 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".gcm.GcmIntentService" />
+        <service android:name=".utils.gcm.GcmIntentService" />
 
         <activity
-            android:name=".newsfilter.NewsFilter"
+            android:name=".news.filter.NewsFilter"
             android:label="@string/title_activity_news__filter"
             android:parentActivityName="br.ufg.inf.muralufg.Inbox_Activity">
             <meta-data
