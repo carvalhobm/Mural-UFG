@@ -89,11 +89,8 @@ public class InboxActivity extends ActionBarActivity implements NavigationDrawer
     public void onNavigationDrawerItemSelected(int position) {
         Fragment objFragment = null;
 
-        switch (position) {
-            case 0:
-                objFragment = new InboxFragment();
-                break;
-        }
+        if (position == 0)
+            objFragment = new InboxFragment();
 
         onSectionAttached(position + 1);
 
@@ -104,11 +101,8 @@ public class InboxActivity extends ActionBarActivity implements NavigationDrawer
     }
 
     private void onSectionAttached(int number) {
-        switch (number) {
-            case 1:
-                mTitle = getString(R.string.title_section1);
-                break;
-        }
+        if (number == 1)
+            mTitle = getString(R.string.title_section1);
     }
 
     private boolean checkPlayServices() {
