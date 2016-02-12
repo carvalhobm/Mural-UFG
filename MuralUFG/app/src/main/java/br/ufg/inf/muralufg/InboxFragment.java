@@ -45,8 +45,8 @@ public class InboxFragment extends Fragment {
     private Context context;
     private DBOpenHelper db;
     private List<News> news;
-    private RecyclerView RVNews;
-    private Boolean CanDelete;
+    private RecyclerView rvNews;
+    private Boolean canDelete;
 
     public static boolean isOnline(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -65,31 +65,31 @@ public class InboxFragment extends Fragment {
         if (!isOnline(context))
             Snackbar.make(coordinatorLayoutView, getString(R.string.NoNetwork), Snackbar.LENGTH_LONG).show();
 
-        PopulateFilters();
-        UpdateList();
+        populateFilters();
+        updateList();
 
-        RVNews.addItemDecoration(new HorizontalDividerItemDecoration
+        rvNews.addItemDecoration(new HorizontalDividerItemDecoration
                 .Builder(getActivity().getApplicationContext())
                 .build());
 
-        final SwipeRefreshLayout SRNews = (SwipeRefreshLayout) rootview.findViewById(R.id.SRNews);
-        SRNews.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        final SwipeRefreshLayout srNews = (SwipeRefreshLayout) rootview.findViewById(R.id.SRNews);
+        srNews.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 if (isOnline(context)) {
-                    if(snackbar != null){
+                    if (snackbar != null) {
                         snackbar.dismiss();
                     }
-                    SRNews.setRefreshing(true);
+                    srNews.setRefreshing(true);
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
-                            UpdateList();
-                            SRNews.setRefreshing(false);
+                            updateList();
+                            srNews.setRefreshing(false);
                         }
                     }, 2000);
                 } else {
-                    SRNews.setRefreshing(false);
+                    srNews.setRefreshing(false);
                     Snackbar.make(coordinatorLayoutView, getString(R.string.NoNetwork), Snackbar.LENGTH_LONG).show();
                 }
             }
@@ -104,14 +104,14 @@ public class InboxFragment extends Fragment {
             @Override
             public void onSwiped(final RecyclerView.ViewHolder viewHolder, int direction) {
                 final int position = viewHolder.getAdapterPosition();
-                CanDelete = true;
+                canDelete = true;
 
                 newsRecyclerAdapter.remove(position);
 
                 final View.OnClickListener clickListener = new View.OnClickListener() {
                     public void onClick(View v) {
-                        if (CanDelete == true) {
-                            CanDelete = false;
+                        if (canDelete) {
+                            canDelete = false;
                             news.add(position, db.getNews(((NewsRecyclerAdapter.NewsViewHolder) viewHolder).id));
                             newsRecyclerAdapter.notifyItemInserted(position);
                         }
@@ -131,7 +131,7 @@ public class InboxFragment extends Fragment {
                     @Override
                     public void onViewDetachedFromWindow(View v) {
                         snackBarView.setVisibility(View.GONE);
-                        if (CanDelete) {
+                        if (canDelete) {
                             db.deleteNewsRow(((NewsRecyclerAdapter.NewsViewHolder) viewHolder).id);
                             newsRecyclerAdapter.notifyDataSetChanged();
                         }
@@ -142,7 +142,7 @@ public class InboxFragment extends Fragment {
                 manager.cancel(((NewsRecyclerAdapter.NewsViewHolder) viewHolder).id);
             }
         });
-        swipeToDismissTouchHelper.attachToRecyclerView(RVNews);
+        swipeToDismissTouchHelper.attachToRecyclerView(rvNews);
 
         return rootview;
     }
@@ -150,14 +150,14 @@ public class InboxFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        UpdateList();
+        updateList();
         if (!isOnline(context))
             Snackbar.make(coordinatorLayoutView, getString(R.string.NoNetwork), Snackbar.LENGTH_LONG).show();
     }
 
-    private void UpdateList() {
-        RVNews = (RecyclerView) rootview.findViewById(R.id.RVNews);
-        RVNews.setLayoutManager(new LinearLayoutManager(context));
+    private void updateList() {
+        rvNews = (RecyclerView) rootview.findViewById(R.id.RVNews);
+        rvNews.setLayoutManager(new LinearLayoutManager(context));
 
         db = new DBOpenHelper(context);
         news = db.getNews();
@@ -170,7 +170,7 @@ public class InboxFragment extends Fragment {
         }
 
         newsRecyclerAdapter = new NewsRecyclerAdapter(context, news);
-        RVNews.setAdapter(newsRecyclerAdapter);
+        rvNews.setAdapter(newsRecyclerAdapter);
 
         ImageView imgBG = (ImageView) rootview.findViewById(R.id.imgBG);
         if (newsRecyclerAdapter.getItemCount() == 0) {
@@ -197,7 +197,7 @@ public class InboxFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-    private void PopulateFilters() {
+    private void populateFilters() {
         db = new DBOpenHelper(context);
 
         String[] units = getResources().getStringArray(R.array.academicunit);
