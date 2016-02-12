@@ -21,10 +21,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.List;
+import java.util.Locale;
 
 import br.ufg.inf.muralufg.DB.DBOpenHelper;
 import br.ufg.inf.muralufg.News.News;
@@ -160,6 +163,16 @@ public class Inbox_Fragment extends Fragment {
 
         db = new DBOpenHelper(context);
         news = db.getNews();
+
+        ImageView imgBG = (ImageView) rootview.findViewById(R.id.imgBG);
+        if (news.size() == 0) {
+            if (Locale.getDefault().toString().equals("pt_BR") || Locale.getDefault().toString().equals("pt_PT"))
+                imgBG.setImageResource(R.drawable.ufg_no_news_ptbr);
+            else
+                imgBG.setImageResource(R.drawable.ufg_no_news_en);
+        }
+        else
+            imgBG.setImageDrawable(null);
 
         for (int i = news.size() - 1; i >= 0; i--) {
             if (news.get(i).get_relevance() == 1)
