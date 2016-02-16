@@ -1,4 +1,4 @@
-package br.ufg.inf.muralufg.news.filter;
+package br.ufg.inf.muralufg.News.filter;
 
 public class AcademicUnits {
     private int id;

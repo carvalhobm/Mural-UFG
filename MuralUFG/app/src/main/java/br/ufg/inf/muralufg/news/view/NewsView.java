@@ -23,8 +23,11 @@ import br.ufg.inf.muralufg.InboxFragment;
 import br.ufg.inf.muralufg.news.News;
 import br.ufg.inf.muralufg.news.NewsJSON;
 import br.ufg.inf.muralufg.R;
+import android.util.Log;
 
 public class NewsView extends ActionBarActivity {
+
+    private static final String TAG = "NewsView";
 
     private static ProgressDialog progressDialog;
 
@@ -51,9 +54,9 @@ public class NewsView extends ActionBarActivity {
         try {
             Populate(db, news);
         } catch (ExecutionException e) {
-            e.printStackTrace();
+            Log.e(NewsView.TAG, e.getMessage());
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Log.e(NewsView.TAG, e.getMessage());
         }
     }
 
