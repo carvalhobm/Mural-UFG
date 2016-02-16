@@ -16,6 +16,7 @@ import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.concurrent.ExecutionException;
+import java.util.logging.Logger;
 
 import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
 import br.ufg.inf.muralufg.InboxActivity;
@@ -58,7 +59,7 @@ public class NewsView extends ActionBarActivity {
         } catch (ExecutionException e) {
             Log.e(NewsView.TAG, e.getMessage());
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Log.println(Log.ERROR, NewsView.TAG, e.getMessage());
         }
     }
 
