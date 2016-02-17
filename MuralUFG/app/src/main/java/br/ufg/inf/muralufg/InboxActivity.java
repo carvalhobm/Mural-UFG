@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.WindowManager;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -24,6 +25,8 @@ import br.ufg.inf.muralufg.utils.mail.SendEmailTask;
 
 
 public class InboxActivity extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+
+    private static final String TAG = "InboxActivity";
 
     private static final String PROPERTY_REG_ID = "registration_id";
     private static final String PROPERTY_APP_VERSION = "appVersion";
@@ -163,6 +166,7 @@ public class InboxActivity extends ActionBarActivity implements NavigationDrawer
 
                     storeRegistrationId(context, regid);
                 } catch (IOException ex) {
+                    Log.e(InboxActivity.TAG, ex.getMessage());
                     msg = "Error :" + ex.getMessage();
                 }
                 return msg;
