@@ -11,7 +11,7 @@ import br.ufg.inf.muralufg.R;
 
 public abstract class AbstractBaseActivity extends AppCompatActivity {
 
-    public static Toolbar toolbar;
+    private static Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,4 +31,8 @@ public abstract class AbstractBaseActivity extends AppCompatActivity {
     }
 
     protected abstract void setActivityContentView();
+
+    public static Toolbar getToolbar() {
+        return toolbar;
+    }
 }
