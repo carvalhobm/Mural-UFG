@@ -150,7 +150,6 @@ public class InboxActivity extends AbstractBaseActivity implements NavigationDra
                     storeRegistrationId(context, regid);
                 } catch (IOException ex) {
                     Log.e(InboxActivity.TAG, ex.getMessage());
-                    msg = "Error :" + ex.getMessage();
                 }
                 return msg;
             }
