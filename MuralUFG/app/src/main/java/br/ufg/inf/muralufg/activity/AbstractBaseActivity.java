@@ -11,7 +11,7 @@ import br.ufg.inf.muralufg.R;
 
 public abstract class AbstractBaseActivity extends AppCompatActivity {
 
-    Toolbar toolbar;
+    public static Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

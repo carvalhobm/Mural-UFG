@@ -31,7 +31,6 @@ public class InboxActivity extends AbstractBaseActivity implements NavigationDra
     private static final String PROPERTY_REG_ID = "registration_id";
     private static final String PROPERTY_APP_VERSION = "appVersion";
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    public static Toolbar toolbar;
     private Context context;
     private String senderID = "439472309664";
     private GoogleCloudMessaging gcm;
