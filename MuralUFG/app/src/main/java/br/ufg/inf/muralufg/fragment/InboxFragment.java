@@ -176,7 +176,7 @@ public class InboxFragment extends Fragment {
 
         ImageView imgBG = (ImageView) rootview.findViewById(R.id.imgBG);
         if (newsRecyclerViewAdapter.getItemCount() == 0) {
-            if ("pt_Br".equals(Locale.getDefault().toString()) || "pt_PT".equals(Locale.getDefault().toString()))
+            if ("pt_BR".equals(Locale.getDefault().toString()) || "pt_PT".equals(Locale.getDefault().toString()))
                 imgBG.setImageResource(R.drawable.ufg_no_news_ptbr);
             else
                 imgBG.setImageResource(R.drawable.ufg_no_news_en);
