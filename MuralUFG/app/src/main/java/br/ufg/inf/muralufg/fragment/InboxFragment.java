@@ -38,9 +38,9 @@ import br.ufg.inf.muralufg.activity.NewsFilterActivity;
 
 public class InboxFragment extends Fragment {
 
-    public static View coordinatorLayoutView;
-    public static Snackbar snackbar;
-    public static View snackBarView;
+    private static View coordinatorLayoutView;
+    private static Snackbar snackbar;
+    private static View snackBarView;
     private static NewsRecyclerViewAdapter newsRecyclerViewAdapter;
     private View rootview;
     private Context context;
@@ -61,7 +61,7 @@ public class InboxFragment extends Fragment {
         setHasOptionsMenu(true);
         rootview = inflater.inflate(R.layout.fragment_news, container, false);
         context = rootview.getContext();
-        coordinatorLayoutView = rootview.findViewById(R.id.snackbarPosition);
+        setcoordinatorLayoutView(rootview.findViewById(R.id.snackbarPosition));
 
         if (!isOnline(context))
             Snackbar.make(coordinatorLayoutView, getString(R.string.NoNetwork), Snackbar.LENGTH_LONG).show();
@@ -209,5 +209,21 @@ public class InboxFragment extends Fragment {
                 db.addAcademicUnits(aux);
             }
         }
+    }
+
+    public static View getCoordinatorLayoutView() {
+        return coordinatorLayoutView;
+    }
+
+    public void setcoordinatorLayoutView(View coordinatorLayoutView) {
+        InboxFragment.coordinatorLayoutView = coordinatorLayoutView;
+    }
+
+    public static Snackbar getSnackbar() {
+        return snackbar;
+    }
+
+    public static View getSnackBarView() {
+        return snackBarView;
     }
 }

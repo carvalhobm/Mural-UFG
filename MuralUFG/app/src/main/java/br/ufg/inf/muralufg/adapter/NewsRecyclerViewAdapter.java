@@ -106,12 +106,12 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
                 @Override
                 public void onClick(View v) {
 
-                    if (InboxFragment.snackbar != null && InboxFragment.snackBarView.getVisibility() == View.VISIBLE) {
-                        InboxFragment.snackbar.dismiss();
+                    if (InboxFragment.getSnackbar() != null && InboxFragment.getSnackBarView().getVisibility() == View.VISIBLE) {
+                        InboxFragment.getSnackbar().dismiss();
                     } else if (db.getNews(id).getIsReaded() == 1 || InboxFragment.isOnline(context))
                         context.startActivity(new Intent(context, NewsViewActivity.class).putExtra("id", id));
                     else
-                        Snackbar.make(InboxFragment.coordinatorLayoutView, context.getString(R.string.NoNetwork), Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(InboxFragment.getCoordinatorLayoutView(), context.getString(R.string.NoNetwork), Snackbar.LENGTH_LONG).show();
                 }
             });
         }
