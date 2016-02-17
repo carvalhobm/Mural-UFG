@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".InboxFragment">
+    tools:context=".fragment.InboxFragment">
 
     <item
         android:id="@+id/actionFilter"

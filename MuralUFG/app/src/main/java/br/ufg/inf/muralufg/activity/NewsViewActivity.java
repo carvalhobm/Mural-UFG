@@ -1,12 +1,10 @@
-package br.ufg.inf.muralufg.news.view;
+package br.ufg.inf.muralufg.activity;
 
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,27 +16,21 @@ import java.text.SimpleDateFormat;
 import java.util.concurrent.ExecutionException;
 
 import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
-import br.ufg.inf.muralufg.InboxActivity;
-import br.ufg.inf.muralufg.InboxFragment;
-import br.ufg.inf.muralufg.news.News;
-import br.ufg.inf.muralufg.news.NewsJSON;
+import br.ufg.inf.muralufg.fragment.InboxFragment;
+import br.ufg.inf.muralufg.model.News;
+import br.ufg.inf.muralufg.utils.json.NewsJSON;
 import br.ufg.inf.muralufg.R;
 import android.util.Log;
 
-public class NewsView extends ActionBarActivity {
+public class NewsViewActivity extends AbstractBaseActivity {
 
-    private static final String TAG = "NewsView";
+    private static final String TAG = "NewsViewActivity";
 
     private static ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news_view);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         int ID = getIntent().getExtras().getInt("id");
         DBOpenHelper db = new DBOpenHelper(getBaseContext());
@@ -54,10 +46,15 @@ public class NewsView extends ActionBarActivity {
         try {
             Populate(db, news);
         } catch (ExecutionException e) {
-            Log.e(NewsView.TAG, e.getMessage());
+            Log.e(NewsViewActivity.TAG, e.getMessage());
         } catch (InterruptedException e) {
-            Log.e(NewsView.TAG, e.getMessage());
+            Log.e(NewsViewActivity.TAG, e.getMessage());
         }
+    }
+
+    @Override
+    protected void setActivityContentView() {
+        setContentView(R.layout.activity_news_view);
     }
 
     @Override

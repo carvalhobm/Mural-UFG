@@ -1,28 +1,28 @@
-package br.ufg.inf.muralufg.news.filter;
+package br.ufg.inf.muralufg.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ListView;
 
 import java.util.List;
 
+import br.ufg.inf.muralufg.model.AcademicUnits;
+import br.ufg.inf.muralufg.adapter.AcademicUnitsAdapter;
 import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
 import br.ufg.inf.muralufg.R;
 
-public class NewsFilter extends ActionBarActivity {
+public class NewsFilterActivity extends AbstractBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news_filter);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Populate();
+    }
+
+    @Override
+    protected void setActivityContentView() {
+        setContentView(R.layout.activity_news_filter);
     }
 
     @Override
@@ -34,10 +34,10 @@ public class NewsFilter extends ActionBarActivity {
     private void Populate() {
         DBOpenHelper db = new DBOpenHelper(getBaseContext());
 
-        List<AcademicUnits> academicUnitses = db.getAcademicUnits();
+        List<AcademicUnits> academicUnits = db.getAcademicUnits();
 
         ListView filterlst = (ListView) findViewById(R.id.FilterList);
-        AcademicUnitsAdapter academicUnitsAdapter = new AcademicUnitsAdapter(getApplicationContext(), academicUnitses);
+        AcademicUnitsAdapter academicUnitsAdapter = new AcademicUnitsAdapter(getApplicationContext(), academicUnits);
         filterlst.setAdapter(academicUnitsAdapter);
     }
 }

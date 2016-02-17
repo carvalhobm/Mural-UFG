@@ -1,4 +1,4 @@
-package br.ufg.inf.muralufg;
+package br.ufg.inf.muralufg.fragment;
 
 
 import android.app.NotificationManager;
@@ -28,11 +28,12 @@ import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 import java.util.List;
 import java.util.Locale;
 
+import br.ufg.inf.muralufg.R;
 import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
-import br.ufg.inf.muralufg.news.News;
-import br.ufg.inf.muralufg.news.NewsRecyclerAdapter;
-import br.ufg.inf.muralufg.news.filter.AcademicUnits;
-import br.ufg.inf.muralufg.news.filter.NewsFilter;
+import br.ufg.inf.muralufg.model.News;
+import br.ufg.inf.muralufg.adapter.NewsRecyclerViewAdapter;
+import br.ufg.inf.muralufg.model.AcademicUnits;
+import br.ufg.inf.muralufg.activity.NewsFilterActivity;
 
 
 public class InboxFragment extends Fragment {
@@ -40,7 +41,7 @@ public class InboxFragment extends Fragment {
     public static View coordinatorLayoutView;
     public static Snackbar snackbar;
     public static View snackBarView;
-    private static NewsRecyclerAdapter newsRecyclerAdapter;
+    private static NewsRecyclerViewAdapter newsRecyclerViewAdapter;
     private View rootview;
     private Context context;
     private DBOpenHelper db;
@@ -106,14 +107,14 @@ public class InboxFragment extends Fragment {
                 final int position = viewHolder.getAdapterPosition();
                 canDelete = true;
 
-                newsRecyclerAdapter.remove(position);
+                newsRecyclerViewAdapter.remove(position);
 
                 final View.OnClickListener clickListener = new View.OnClickListener() {
                     public void onClick(View v) {
                         if (canDelete) {
                             canDelete = false;
-                            news.add(position, db.getNews(((NewsRecyclerAdapter.NewsViewHolder) viewHolder).id));
-                            newsRecyclerAdapter.notifyItemInserted(position);
+                            news.add(position, db.getNews(((NewsRecyclerViewAdapter.NewsViewHolder) viewHolder).id));
+                            newsRecyclerViewAdapter.notifyItemInserted(position);
                         }
                     }
                 };
@@ -132,14 +133,14 @@ public class InboxFragment extends Fragment {
                     public void onViewDetachedFromWindow(View v) {
                         snackBarView.setVisibility(View.GONE);
                         if (canDelete) {
-                            db.deleteNewsRow(((NewsRecyclerAdapter.NewsViewHolder) viewHolder).id);
-                            newsRecyclerAdapter.notifyDataSetChanged();
+                            db.deleteNewsRow(((NewsRecyclerViewAdapter.NewsViewHolder) viewHolder).id);
+                            newsRecyclerViewAdapter.notifyDataSetChanged();
                         }
                     }
                 });
                 snackbar.show();
                 NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                manager.cancel(((NewsRecyclerAdapter.NewsViewHolder) viewHolder).id);
+                manager.cancel(((NewsRecyclerViewAdapter.NewsViewHolder) viewHolder).id);
             }
         });
         swipeToDismissTouchHelper.attachToRecyclerView(rvNews);
@@ -169,11 +170,11 @@ public class InboxFragment extends Fragment {
                 news.remove(i);
         }
 
-        newsRecyclerAdapter = new NewsRecyclerAdapter(context, news);
-        rvNews.setAdapter(newsRecyclerAdapter);
+        newsRecyclerViewAdapter = new NewsRecyclerViewAdapter(context, news);
+        rvNews.setAdapter(newsRecyclerViewAdapter);
 
         ImageView imgBG = (ImageView) rootview.findViewById(R.id.imgBG);
-        if (newsRecyclerAdapter.getItemCount() == 0) {
+        if (newsRecyclerViewAdapter.getItemCount() == 0) {
             if ("pt_Br".equals(Locale.getDefault().toString()) || "pt_PT".equals(Locale.getDefault().toString()))
                 imgBG.setImageResource(R.drawable.ufg_no_news_ptbr);
             else
@@ -192,7 +193,7 @@ public class InboxFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.actionFilter) {
-            context.startActivity(new Intent(context, NewsFilter.class));
+            context.startActivity(new Intent(context, NewsFilterActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

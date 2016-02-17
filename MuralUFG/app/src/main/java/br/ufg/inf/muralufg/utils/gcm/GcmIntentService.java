@@ -30,8 +30,8 @@ import android.provider.Settings;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
-import br.ufg.inf.muralufg.news.News;
-import br.ufg.inf.muralufg.news.view.NewsView;
+import br.ufg.inf.muralufg.model.News;
+import br.ufg.inf.muralufg.activity.NewsViewActivity;
 import br.ufg.inf.muralufg.R;
 
 /**
@@ -81,7 +81,7 @@ public class GcmIntentService extends IntentService {
         if (NOTIFICATION_ID == -1)
             return;
 
-        Intent notificationIntent = new Intent(this, NewsView.class).putExtra("id", NOTIFICATION_ID);
+        Intent notificationIntent = new Intent(this, NewsViewActivity.class).putExtra("id", NOTIFICATION_ID);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, NOTIFICATION_ID, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification notification;

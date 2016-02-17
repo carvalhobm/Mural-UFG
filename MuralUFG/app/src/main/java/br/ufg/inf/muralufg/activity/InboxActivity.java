@@ -1,21 +1,16 @@
-package br.ufg.inf.muralufg;
+package br.ufg.inf.muralufg.activity;
 
-import android.app.ActivityManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.WindowManager;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -23,10 +18,13 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import java.io.IOException;
 
+import br.ufg.inf.muralufg.fragment.InboxFragment;
+import br.ufg.inf.muralufg.fragment.NavigationDrawerFragment;
+import br.ufg.inf.muralufg.R;
 import br.ufg.inf.muralufg.utils.mail.SendEmailTask;
 
 
-public class InboxActivity extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class InboxActivity extends AbstractBaseActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     private static final String TAG = "InboxActivity";
 
@@ -38,32 +36,14 @@ public class InboxActivity extends ActionBarActivity implements NavigationDrawer
     private String senderID = "439472309664";
     private GoogleCloudMessaging gcm;
     private String regid;
-    private CharSequence mTitle;
-
-    private static int getAppVersion(Context context) {
-        try {
-            PackageInfo packageInfo = context.getPackageManager()
-                    .getPackageInfo(context.getPackageName(), 0);
-            return packageInfo.versionCode;
-        } catch (PackageManager.NameNotFoundException e) {
-            throw new RuntimeException("Could not get package name: " + e);
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news);
         context = getApplicationContext();
 
         NavigationDrawerFragment mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(mTitle);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
@@ -77,13 +57,11 @@ public class InboxActivity extends ActionBarActivity implements NavigationDrawer
                 registerInBackground();
             }
         }
+    }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(context.getResources().getColor(R.color.ColorUFGDark));
-
-            ActivityManager.TaskDescription taskDescription = new ActivityManager.TaskDescription(getString(R.string.app_name), BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher), getResources().getColor(R.color.ColorUFG));
-            this.setTaskDescription(taskDescription);
-        }
+    @Override
+    protected void setActivityContentView() {
+        setContentView(R.layout.activity_news);
     }
 
     @Override
@@ -99,17 +77,10 @@ public class InboxActivity extends ActionBarActivity implements NavigationDrawer
         if (position == 0)
             objFragment = new InboxFragment();
 
-        onSectionAttached(position + 1);
-
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.container, objFragment)
                 .commit();
-    }
-
-    private void onSectionAttached(int number) {
-        if (number == 1)
-            mTitle = getString(R.string.title_section1);
     }
 
     private boolean checkPlayServices() {
@@ -125,6 +96,16 @@ public class InboxActivity extends ActionBarActivity implements NavigationDrawer
             return false;
         }
         return true;
+    }
+
+    private static int getAppVersion(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager()
+                    .getPackageInfo(context.getPackageName(), 0);
+            return packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            throw new RuntimeException("Could not get package name: " + e);
+        }
     }
 
     private void storeRegistrationId(Context context, String regId) {
