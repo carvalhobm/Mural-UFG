@@ -18,8 +18,8 @@ public abstract class AbstractBaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setActivityContentView();
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setToolbar((Toolbar) findViewById(R.id.toolbar));
+        setSupportActionBar(getToolbar());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -31,6 +31,10 @@ public abstract class AbstractBaseActivity extends AppCompatActivity {
     }
 
     protected abstract void setActivityContentView();
+
+    public static void setToolbar(Toolbar toolbar) {
+        AbstractBaseActivity.toolbar = toolbar;
+    }
 
     public static Toolbar getToolbar() {
         return toolbar;
