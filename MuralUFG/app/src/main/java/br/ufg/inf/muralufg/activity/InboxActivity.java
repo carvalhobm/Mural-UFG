@@ -139,11 +139,14 @@ public class InboxActivity extends AbstractBaseActivity implements NavigationDra
             protected String doInBackground(Void... params) {
                 String msg = "";
                 try {
-                    if (gcm == null)
+                    if (gcm == null) {
                         gcm = GoogleCloudMessaging.getInstance(context);
+                    }
                     regid = gcm.register(senderID);
                     msg = "Device registered, registration ID=" + regid;
+
                     sendRegistrationIdToBackend(regid);
+
                     storeRegistrationId(context, regid);
                 } catch (IOException ex) {
                     Log.e(InboxActivity.TAG, ex.getMessage());

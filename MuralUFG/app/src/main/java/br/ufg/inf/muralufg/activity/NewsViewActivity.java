@@ -26,8 +26,6 @@ public class NewsViewActivity extends AbstractBaseActivity {
 
     private static final String TAG = "NewsViewActivity";
 
-    private static ProgressDialog progressDialog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +66,7 @@ public class NewsViewActivity extends AbstractBaseActivity {
         manager.cancel(news.getId());
 
         if (news.getIsReaded() == 0) {
-            progressDialog = ProgressDialog.show(this, news.getTitle(), getString(R.string.pdLoading), true, true);
+            ProgressDialog progressDialog = ProgressDialog.show(this, news.getTitle(), getString(R.string.pdLoading), true, true);
             NewsJSON json = new NewsJSON(getApplicationContext(), news);
             news = json.getNews(news);
             db.editNews(news);
