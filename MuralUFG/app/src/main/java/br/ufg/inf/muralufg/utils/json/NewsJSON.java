@@ -1,6 +1,5 @@
 package br.ufg.inf.muralufg.utils.json;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -23,11 +22,9 @@ import br.ufg.inf.muralufg.model.News;
 public class NewsJSON {
 
     private static final String TAG = "NewsJSON";
-    private Context context;
     private News news;
 
-    public NewsJSON(Context context, News news) {
-        this.context = context;
+    public NewsJSON(News news) {
         this.news = news;
     }
 

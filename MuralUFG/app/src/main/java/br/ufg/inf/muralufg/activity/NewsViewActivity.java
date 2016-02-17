@@ -67,7 +67,7 @@ public class NewsViewActivity extends AbstractBaseActivity {
 
         if (news.getIsReaded() == 0) {
             ProgressDialog progressDialog = ProgressDialog.show(this, news.getTitle(), getString(R.string.pdLoading), true, true);
-            NewsJSON json = new NewsJSON(getApplicationContext(), news);
+            NewsJSON json = new NewsJSON(news);
             news = json.getNews(news);
             db.editNews(news);
             db.readedNews(news);

@@ -86,7 +86,7 @@ public class GcmIntentService extends IntentService {
 
         Notification notification;
 
-        if (extras.get("relevance").toString().equals("1")) {
+        if ("1".equals(extras.get("relevance").toString())) {
 
             notification = new Notification.Builder(getApplicationContext())
                     .setSmallIcon(R.drawable.ufg_notification)

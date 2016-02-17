@@ -120,6 +120,9 @@ class DBInfo {
         return COLUMN_ISCHECKED;
     }
 
+    private DBInfo(){
+    }
+
     public static void CreateDB(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_NEWS);
         db.execSQL(CREATE_TABLE_ACADEMITUNITS);
