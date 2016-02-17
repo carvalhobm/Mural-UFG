@@ -88,6 +88,7 @@ class GMailSender extends javax.mail.Authenticator {
             this.type = type;
         }
 
+        @Override
         public String getContentType() {
             if (type == null)
                 return "application/octet-stream";
@@ -95,14 +96,17 @@ class GMailSender extends javax.mail.Authenticator {
                 return type;
         }
 
+        @Override
         public InputStream getInputStream() throws IOException {
             return new ByteArrayInputStream(data);
         }
 
+        @Override
         public String getName() {
             return "ByteArrayDataSource";
         }
 
+        @Override
         public OutputStream getOutputStream() throws IOException {
             throw new IOException("Not Supported");
         }
