@@ -215,7 +215,7 @@ public class InboxFragment extends Fragment {
         return coordinatorLayoutView;
     }
 
-    public void setcoordinatorLayoutView(View coordinatorLayoutView) {
+    public static void setcoordinatorLayoutView(View coordinatorLayoutView) {
         InboxFragment.coordinatorLayoutView = coordinatorLayoutView;
     }
 
