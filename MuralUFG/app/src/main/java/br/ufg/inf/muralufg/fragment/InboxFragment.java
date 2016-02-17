@@ -84,6 +84,7 @@ public class InboxFragment extends Fragment {
                     srNews.setRefreshing(true);
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
+                        @Override
                         public void run() {
                             updateList();
                             srNews.setRefreshing(false);

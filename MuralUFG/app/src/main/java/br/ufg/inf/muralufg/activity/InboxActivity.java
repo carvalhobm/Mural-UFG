@@ -154,10 +154,6 @@ public class InboxActivity extends AbstractBaseActivity implements NavigationDra
                 }
                 return msg;
             }
-
-            @Override
-            protected void onPostExecute(String msg) {
-            }
         }.execute(null, null, null);
     }
 
