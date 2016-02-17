@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import br.ufg.inf.muralufg.R;
 
 public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapter.NewsViewHolder> {
 
+    private static final String TAG = "NewsRecyclerAdapter";
     private static Context context;
     private final List<News> news;
 
@@ -42,6 +44,7 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
         try {
             newsViewHolder.id = news.get(i).getId();
         } catch (Exception e) {
+            Log.e(NewsRecyclerAdapter.TAG, e.getMessage());
             return;
         }
 

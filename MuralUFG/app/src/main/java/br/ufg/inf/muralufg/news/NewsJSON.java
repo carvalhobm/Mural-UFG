@@ -2,6 +2,7 @@ package br.ufg.inf.muralufg.news;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -19,6 +20,7 @@ import java.util.concurrent.ExecutionException;
 
 public class NewsJSON {
 
+    private static final String TAG = "NewsJSON";
     private Context context;
     private News news;
 
@@ -51,6 +53,7 @@ public class NewsJSON {
                 inputStream.close();
             }
         } catch (Exception e) {
+            Log.e(NewsJSON.TAG, e.getMessage());
         }
         return stringBuilder.toString();
     }
@@ -69,6 +72,7 @@ public class NewsJSON {
                 news.setPhoto(newscontent.getString("photo"));
 
             } catch (Exception e) {
+                Log.e(NewsJSON.TAG, e.getMessage());
             }
             return result;
         }
