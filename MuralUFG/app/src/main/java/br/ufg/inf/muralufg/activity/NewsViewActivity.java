@@ -30,9 +30,9 @@ public class NewsViewActivity extends AbstractBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        int ID = getIntent().getExtras().getInt("id");
+        int id = getIntent().getExtras().getInt("id");
         DBOpenHelper db = new DBOpenHelper(getBaseContext());
-        News news = db.getNews(ID);
+        News news = db.getNews(id);
 
         if (news.getIsReaded() == 0 && !InboxFragment.isOnline(this)) {
             finish();
@@ -42,7 +42,7 @@ public class NewsViewActivity extends AbstractBaseActivity {
         }
 
         try {
-            Populate(db, news);
+            populate(db, news);
         } catch (ExecutionException e) {
             Log.e(NewsViewActivity.TAG, e.getMessage());
         } catch (InterruptedException e) {
@@ -61,7 +61,7 @@ public class NewsViewActivity extends AbstractBaseActivity {
         return true;
     }
 
-    private void Populate(DBOpenHelper db, News news) throws ExecutionException, InterruptedException {
+    private void populate(DBOpenHelper db, News news) throws ExecutionException, InterruptedException {
         NotificationManager manager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
         manager.cancel(news.getId());
 
@@ -74,22 +74,22 @@ public class NewsViewActivity extends AbstractBaseActivity {
             progressDialog.dismiss();
         }
 
-        ImageView NewsIMG = (ImageView) findViewById(R.id.NewsIMG);
+        ImageView newsIMG = (ImageView) findViewById(R.id.NewsIMG);
 
         if (news.getPhoto().length() > 0) {
-            Picasso.with(getApplicationContext()).load(news.getPhoto()).into(NewsIMG);
+            Picasso.with(getApplicationContext()).load(news.getPhoto()).into(newsIMG);
         } else {
-            NewsIMG.setVisibility(View.GONE);
+            newsIMG.setVisibility(View.GONE);
         }
 
-        TextView NewsTitle = (TextView) findViewById(R.id.NewsTitle);
-        NewsTitle.setText(news.getTitle());
+        TextView newsTitle = (TextView) findViewById(R.id.NewsTitle);
+        newsTitle.setText(news.getTitle());
 
-        TextView NewsAuthorDateTime = (TextView) findViewById(R.id.NewsAuthorDateTime);
+        TextView newsAuthorDateTime = (TextView) findViewById(R.id.NewsAuthorDateTime);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-        NewsAuthorDateTime.setText(news.getAuthor() + " - " + simpleDateFormat.format(Long.parseLong(news.getDatetime())));
+        newsAuthorDateTime.setText(news.getAuthor() + " - " + simpleDateFormat.format(Long.parseLong(news.getDatetime())));
 
-        TextView NewsNews = (TextView) findViewById(R.id.NewsNews);
-        NewsNews.setText(news.getNews());
+        TextView newsNews = (TextView) findViewById(R.id.NewsNews);
+        newsNews.setText(news.getNews());
     }
 }

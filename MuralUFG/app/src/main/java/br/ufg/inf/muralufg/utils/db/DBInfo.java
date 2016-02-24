@@ -52,23 +52,23 @@ class DBInfo {
     private static final String DELETE_TABLE_ACADEMITUNITS = "DROP TABLE IF EXISTS " + TABLE_NAME_ACADEMITUNITS;
 
     //Get's
-    public static String getDB_NAME() {
+    public static String getDBName() {
         return DB_NAME;
     }
 
-    public static int getDB_VERSION() {
+    public static int getDBVersion() {
         return DB_VERSION;
     }
 
-    public static String getTABLE_NAME_NEWS() {
+    public static String getTableNameNews() {
         return TABLE_NAME_NEWS;
     }
 
-    public static String getTABLE_NAME_ACADEMITUNITS() {
+    public static String getTableNameAcademicUnits() {
         return TABLE_NAME_ACADEMITUNITS;
     }
 
-    public static String getCOLUMN_ID() {
+    public static String getColumnID() {
         return COLUMN_ID;
     }
 
@@ -104,11 +104,11 @@ class DBInfo {
         return COLUMN_RELEVANCE;
     }
 
-    public static String getCOLUMN_URL() {
+    public static String getColumnURL() {
         return COLUMN_URL;
     }
 
-    public static String getColumnUnitid() {
+    public static String getColumnUnitID() {
         return COLUMN_UNITID;
     }
 
@@ -116,34 +116,31 @@ class DBInfo {
         return COLUMN_UNIT;
     }
 
-    public static String getColumnIschecked() {
+    public static String getColumnIsChecked() {
         return COLUMN_ISCHECKED;
     }
 
-    private DBInfo(){
-    }
-
-    public static void CreateDB(SQLiteDatabase db) {
+    public static void createDB(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_NEWS);
         db.execSQL(CREATE_TABLE_ACADEMITUNITS);
     }
 
-    public static void DeleteDB(SQLiteDatabase db) {
+    public static void deleteDB(SQLiteDatabase db) {
         db.execSQL(DELETE_TABLE_NEWS);
         db.execSQL(DELETE_TABLE_ACADEMITUNITS);
     }
 
-    public static void ResetDB(SQLiteDatabase db) {
-        DeleteDB(db);
-        CreateDB(db);
+    public static void resetDB(SQLiteDatabase db) {
+        deleteDB(db);
+        createDB(db);
     }
 
-    public static void ResetNews(SQLiteDatabase db) {
+    public static void resetNews(SQLiteDatabase db) {
         db.execSQL(DELETE_TABLE_NEWS);
         db.execSQL(CREATE_TABLE_NEWS);
     }
 
-    public static void ResetAcademicUnits(SQLiteDatabase db) {
+    public static void resetAcademicUnits(SQLiteDatabase db) {
         db.execSQL(DELETE_TABLE_ACADEMITUNITS);
         db.execSQL(CREATE_TABLE_ACADEMITUNITS);
     }

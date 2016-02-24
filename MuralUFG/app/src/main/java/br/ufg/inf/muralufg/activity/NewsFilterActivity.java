@@ -17,7 +17,7 @@ public class NewsFilterActivity extends AbstractBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Populate();
+        populate();
     }
 
     @Override
@@ -31,7 +31,7 @@ public class NewsFilterActivity extends AbstractBaseActivity {
         return true;
     }
 
-    private void Populate() {
+    private void populate() {
         DBOpenHelper db = new DBOpenHelper(getBaseContext());
 
         List<AcademicUnits> academicUnits = db.getAcademicUnits();
