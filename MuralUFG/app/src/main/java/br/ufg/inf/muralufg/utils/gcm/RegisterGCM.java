@@ -59,15 +59,15 @@ public class RegisterGCM {
             protected String doInBackground(Void... params) {
                 String msg = "";
                 try {
-                    if (InboxActivity.gcm == null) {
-                        InboxActivity.gcm = GoogleCloudMessaging.getInstance(context);
+                    if (InboxActivity.getGCM() == null) {
+                        InboxActivity.setGCM(GoogleCloudMessaging.getInstance(context));
                     }
-                    InboxActivity.regid = InboxActivity.gcm.register(senderID);
-                    msg = "Device registered, registration ID=" + InboxActivity.regid;
+                    InboxActivity.setregid(InboxActivity.getGCM().register(senderID));
+                    msg = "Device registered, registration ID=" + InboxActivity.getregid();
 
-                    sendRegistrationIdToBackend(InboxActivity.regid);
+                    sendRegistrationIdToBackend(InboxActivity.getregid());
 
-                    storeRegistrationId(context, InboxActivity.regid);
+                    storeRegistrationId(context, InboxActivity.getregid());
                 } catch (IOException ex) {
                     Log.e(TAG, ex.getMessage());
                     msg = "Error :" + ex.getMessage();

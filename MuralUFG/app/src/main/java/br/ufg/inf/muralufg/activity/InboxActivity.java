@@ -27,8 +27,8 @@ import br.ufg.inf.muralufg.utils.mail.SendEmailTask;
 public class InboxActivity extends AbstractBaseActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     private Context context;
-    public static GoogleCloudMessaging gcm;
-    public static String regid;
+    private static GoogleCloudMessaging gcm;
+    private static String regid;
     public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
     @Override
@@ -90,5 +90,21 @@ public class InboxActivity extends AbstractBaseActivity implements NavigationDra
             return false;
         }
         return true;
+    }
+
+    public static GoogleCloudMessaging getGCM() {
+        return gcm;
+    }
+
+    public static void setGCM(GoogleCloudMessaging gcm) {
+        InboxActivity.gcm = gcm;
+    }
+
+    public static String getregid() {
+        return regid;
+    }
+
+    public static void setregid(String regid) {
+        InboxActivity.regid = regid;
     }
 }
