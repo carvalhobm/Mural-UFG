@@ -1,27 +1,19 @@
 package br.ufg.inf.muralufg.activity;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-import java.io.IOException;
-
 import br.ufg.inf.muralufg.fragment.InboxFragment;
 import br.ufg.inf.muralufg.fragment.NavigationDrawerFragment;
 import br.ufg.inf.muralufg.R;
 import br.ufg.inf.muralufg.utils.gcm.RegisterGCM;
-import br.ufg.inf.muralufg.utils.mail.SendEmailTask;
 
 
 public class InboxActivity extends AbstractBaseActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
