@@ -44,10 +44,10 @@ public class InboxActivity extends AbstractBaseActivity implements NavigationDra
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
         if (checkPlayServices()) {
-            gcm = GoogleCloudMessaging.getInstance(context);
-            regid = RegisterGCM.getRegistrationId(context);
+            setGCM(GoogleCloudMessaging.getInstance(context));
+            setregid(RegisterGCM.getRegistrationId(context));
 
-            if (regid.isEmpty()) {
+            if (getregid().isEmpty()) {
                 RegisterGCM.registerInBackground(context);
             }
         }
