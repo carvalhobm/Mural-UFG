@@ -16,7 +16,7 @@ public class NewsTest {
 
     @Before
     public void setUp() throws Exception {
-        news = new News(1, "title", "news", "photo", "author", 1, "datetime", 1, "url") ;
+        news = new News(1, "title", "news", "photo", "author", 1, "datetime", 1, "url");
     }
 
     @Test
@@ -116,7 +116,7 @@ public class NewsTest {
     @Test
     public void testSetRelevance() throws Exception {
         news.setRelevance(3);
-        Assert.assertEquals(2, news.getRelevance());
+        Assert.assertEquals(3, news.getRelevance());
     }
 
     @Test
