@@ -16,7 +16,7 @@ public class NewsTest {
 
     @Before
     public void setUp() throws Exception {
-        news = new News(1, "title", "news", "photo", "author", 1, "datetime", 1, "url") ;
+        news = new News(1, "title", "news", "photo", "author", 1, "datetime", 1, "url");
     }
 
     @Test
