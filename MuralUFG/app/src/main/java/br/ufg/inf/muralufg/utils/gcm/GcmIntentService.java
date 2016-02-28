@@ -50,6 +50,7 @@ public class GcmIntentService extends IntentService {
     private static final String NEWS = "news";
     private static final String AUTHOR = "author";
     private static final String AUTHOR_BELONGS = "authorbelongs";
+    private static final String DATE_TIME = "datetime";
 
     public GcmIntentService() {
         super("GcmIntentService");
@@ -76,7 +77,7 @@ public class GcmIntentService extends IntentService {
     private void sendNotification(Bundle extras) {
         DBOpenHelper db = new DBOpenHelper(getApplicationContext());
 
-        News news = new News(extras.get(GcmIntentService.TITLE).toString(), extras.get(GcmIntentService.NEWS).toString(), "", extras.get(GcmIntentService.AUTHOR).toString(), Integer.parseInt(extras.get(GcmIntentService.AUTHOR_BELONGS).toString()), extras.get("datetime").toString(), Integer.parseInt(extras.get("relevance").toString()), extras.get("url").toString());
+        News news = new News(extras.get(GcmIntentService.TITLE).toString(), extras.get(GcmIntentService.NEWS).toString(), "", extras.get(GcmIntentService.AUTHOR).toString(), Integer.parseInt(extras.get(GcmIntentService.AUTHOR_BELONGS).toString()), extras.get(GcmIntentService.DATE_TIME).toString(), Integer.parseInt(extras.get("relevance").toString()), extras.get("url").toString());
         if (news.getRelevance() == 0 && !db.canDisplayNews(news))
             return;
 
