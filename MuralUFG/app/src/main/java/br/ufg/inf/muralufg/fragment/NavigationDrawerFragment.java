@@ -103,24 +103,24 @@ public class NavigationDrawerFragment extends Fragment {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-                if (!isAdded()) {
-                    return;
+                if (isAdded()) {
+                    getActivity().supportInvalidateOptionsMenu();
                 }
-                getActivity().supportInvalidateOptionsMenu();
+
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                if (!isAdded()) {
-                    return;
+                if (isAdded()) {
+                    if (!mUserLearnedDrawer) {
+                        mUserLearnedDrawer = true;
+                        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                        sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
+                    }
+                    getActivity().supportInvalidateOptionsMenu();
                 }
-                if (!mUserLearnedDrawer) {
-                    mUserLearnedDrawer = true;
-                    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                    sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
-                }
-                getActivity().supportInvalidateOptionsMenu();
+
             }
         };
 
