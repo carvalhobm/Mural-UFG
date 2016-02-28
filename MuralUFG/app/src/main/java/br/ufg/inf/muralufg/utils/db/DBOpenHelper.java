@@ -132,10 +132,10 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         return academicunitslst;
     }
 
-    public News getNews(int ID) {
+    public News getNews(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String query = "SELECT * FROM " + DBInfo.getTableNameNews() + " WHERE " + DBInfo.getColumnID() + " = " + ID;
+        String query = "SELECT * FROM " + DBInfo.getTableNameNews() + " WHERE " + DBInfo.getColumnID() + " = " + id;
         Cursor cursor = db.rawQuery(query, null);
 
         News news = new News();

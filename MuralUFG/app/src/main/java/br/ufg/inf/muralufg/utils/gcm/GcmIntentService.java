@@ -45,7 +45,11 @@ import br.ufg.inf.muralufg.R;
 public class GcmIntentService extends IntentService {
 
     public static final String TAG = "GCM Demo";
-    private static int NOTIFICATION_ID = -1;
+    private int notificationId = -1;
+    private static final String TITLE = "title";
+    private static final String NEWS = "news";
+    private static final String AUTHOR = "author";
+    private static final String AUTHOR_BELONGS = "authorbelongs";
 
     public GcmIntentService() {
         super("GcmIntentService");
@@ -57,7 +61,7 @@ public class GcmIntentService extends IntentService {
         GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(this);
 
         String messageType = gcm.getMessageType(intent);
-        if (!extras.isEmpty() && extras.get("title") != null) {
+        if (!extras.isEmpty() && extras.get(GcmIntentService.TITLE) != null) {
             if (GoogleCloudMessaging.MESSAGE_TYPE_SEND_ERROR.equals(messageType)) {
                 sendNotification(extras);
             } else if (GoogleCloudMessaging.MESSAGE_TYPE_DELETED.equals(messageType)) {
@@ -72,17 +76,17 @@ public class GcmIntentService extends IntentService {
     private void sendNotification(Bundle extras) {
         DBOpenHelper db = new DBOpenHelper(getApplicationContext());
 
-        News news = new News(extras.get("title").toString(), extras.get("news").toString(), "", extras.get("author").toString(), Integer.parseInt(extras.get("authorbelongs").toString()), extras.get("datetime").toString(), Integer.parseInt(extras.get("relevance").toString()), extras.get("url").toString());
+        News news = new News(extras.get(GcmIntentService.TITLE).toString(), extras.get(GcmIntentService.NEWS).toString(), "", extras.get(GcmIntentService.AUTHOR).toString(), Integer.parseInt(extras.get(GcmIntentService.AUTHOR_BELONGS).toString()), extras.get("datetime").toString(), Integer.parseInt(extras.get("relevance").toString()), extras.get("url").toString());
         if (news.getRelevance() == 0 && !db.canDisplayNews(news))
             return;
 
-        NOTIFICATION_ID = db.addNews(news);
+        notificationId = db.addNews(news);
 
-        if (NOTIFICATION_ID == -1)
+        if (notificationId == -1)
             return;
 
-        Intent notificationIntent = new Intent(this, NewsViewActivity.class).putExtra("id", NOTIFICATION_ID);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, NOTIFICATION_ID, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent notificationIntent = new Intent(this, NewsViewActivity.class).putExtra("id", notificationId);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, notificationId, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification notification;
 
@@ -93,9 +97,9 @@ public class GcmIntentService extends IntentService {
                     .setSound(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.phonebeeping))
                     .setLights(Color.RED, 3000, 2000)
                     .setContentIntent(pendingIntent)
-                    .setTicker(extras.get("title").toString())
-                    .setContentTitle(extras.get("title").toString())
-                    .setContentText(extras.get("author").toString())
+                    .setTicker(extras.get(GcmIntentService.TITLE).toString())
+                    .setContentTitle(extras.get(GcmIntentService.NEWS).toString())
+                    .setContentText(extras.get(GcmIntentService.AUTHOR).toString())
                     .build();
         } else {
             notification = new Notification.Builder(getApplicationContext())
@@ -103,14 +107,14 @@ public class GcmIntentService extends IntentService {
                     .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
                     .setLights(Color.BLUE, 1000, 5000)
                     .setContentIntent(pendingIntent)
-                    .setTicker(extras.get("title").toString())
-                    .setContentTitle(extras.get("title").toString())
-                    .setContentText(extras.get("author").toString())
+                    .setTicker(extras.get(GcmIntentService.TITLE).toString())
+                    .setContentTitle(extras.get(GcmIntentService.NEWS).toString())
+                    .setContentText(extras.get(GcmIntentService.AUTHOR).toString())
                     .build();
         }
 
         NotificationManager manager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
         notification.flags |= Notification.FLAG_AUTO_CANCEL;
-        manager.notify(NOTIFICATION_ID, notification);
+        manager.notify(notificationId, notification);
     }
 }

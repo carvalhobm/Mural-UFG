@@ -33,10 +33,10 @@ public class NewsJSON {
         return news;
     }
 
-    private String readJSONFeed(String URL) {
+    private String readJSONFeed(String url) {
         StringBuilder stringBuilder = new StringBuilder();
         HttpClient httpClient = new DefaultHttpClient();
-        HttpGet httpGet = new HttpGet(URL);
+        HttpGet httpGet = new HttpGet(url);
         try {
             HttpResponse response = httpClient.execute(httpGet);
             StatusLine statusLine = response.getStatusLine();
