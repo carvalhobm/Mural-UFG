@@ -115,7 +115,7 @@ public class NewsTest {
 
     @Test
     public void testSetRelevance() throws Exception {
-        news.setRelevance(2);
+        news.setRelevance(3);
         Assert.assertEquals(2, news.getRelevance());
     }
 
