@@ -27,9 +27,10 @@ public class AcademicUnitsAdapter extends ArrayAdapter<AcademicUnits> {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView = inflater.inflate(R.layout.filter_row, parent, false);
-        CheckBox cb = (CheckBox) convertView.findViewById(R.id.FilterCB);
+        View newView = inflater.inflate(R.layout.filter_row, parent, false);
+        CheckBox cb = (CheckBox) newView.findViewById(R.id.FilterCB);
 
         cb.setText(academicUnitslst.get(position).getUnit());
         if (academicUnitslst.get(position).getIsChecked() == 1)
@@ -50,6 +51,6 @@ public class AcademicUnitsAdapter extends ArrayAdapter<AcademicUnits> {
             }
         });
 
-        return convertView;
+        return newView;
     }
 }

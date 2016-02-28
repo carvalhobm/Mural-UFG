@@ -26,11 +26,9 @@ import br.ufg.inf.muralufg.activity.InboxActivity;
 import br.ufg.inf.muralufg.adapter.CustomDrawerAdapter;
 import br.ufg.inf.muralufg.model.DrawerItem;
 
-
 public class NavigationDrawerFragment extends Fragment {
 
-
-    private static final String TAG = "NavigationDrawerFragment";
+    private static final String TAG = "NavigationDrawerFrag";
     private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
     private static final String PREF_USER_LEARNED_DRAWER = "navigation_drawer_learned";
 
@@ -47,6 +45,7 @@ public class NavigationDrawerFragment extends Fragment {
     private boolean mUserLearnedDrawer;
 
     public NavigationDrawerFragment() {
+        // Do nothing because it is the default constructor.
     }
 
     @Override
@@ -99,21 +98,14 @@ public class NavigationDrawerFragment extends Fragment {
     public void setUp(int fragmentId, DrawerLayout drawerLayout) {
         mFragmentContainerView = getActivity().findViewById(fragmentId);
         mDrawerLayout = drawerLayout;
-
-        mDrawerToggle = new ActionBarDrawerToggle(
-                getActivity(),
-                mDrawerLayout,
-                InboxActivity.getToolbar(),
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close
-        ) {
+        mDrawerToggle = new ActionBarDrawerToggle(getActivity(),mDrawerLayout,
+                InboxActivity.getToolbar(),R.string.navigation_drawer_open,R.string.navigation_drawer_close) {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
                 if (!isAdded()) {
                     return;
                 }
-
                 getActivity().supportInvalidateOptionsMenu();
             }
 
@@ -123,14 +115,11 @@ public class NavigationDrawerFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
-
                 if (!mUserLearnedDrawer) {
                     mUserLearnedDrawer = true;
-                    SharedPreferences sp = PreferenceManager
-                            .getDefaultSharedPreferences(getActivity());
+                    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
                     sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
                 }
-
                 getActivity().supportInvalidateOptionsMenu();
             }
         };
@@ -168,7 +157,7 @@ public class NavigationDrawerFragment extends Fragment {
         try {
             mCallbacks = (NavigationDrawerCallbacks) activity;
         } catch (ClassCastException e) {
-            Log.e(TAG, e.getMessage());
+            Log.e(NavigationDrawerFragment.TAG, e.getMessage());
             throw new ClassCastException("Activity must implement NavigationDrawerCallbacks.");
         }
     }

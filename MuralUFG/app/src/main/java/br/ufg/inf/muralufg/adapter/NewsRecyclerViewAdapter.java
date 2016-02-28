@@ -29,7 +29,7 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
     private final List<News> news;
 
     public NewsRecyclerViewAdapter(Context context, List<News> news) {
-        this.context = context;
+        NewsRecyclerViewAdapter.context = context;
         this.news = news;
     }
 

@@ -64,9 +64,7 @@ public class RegisterGCM {
                     }
                     InboxActivity.setregid(InboxActivity.getGCM().register(senderID));
                     msg = "Device registered, registration ID=" + InboxActivity.getregid();
-
                     sendRegistrationIdToBackend(InboxActivity.getregid());
-
                     storeRegistrationId(context, InboxActivity.getregid());
                 } catch (IOException ex) {
                     Log.e(TAG, ex.getMessage());

@@ -61,14 +61,15 @@ public class NewsViewActivity extends AbstractBaseActivity {
         return true;
     }
 
-    private void populate(DBOpenHelper db, News news) throws ExecutionException, InterruptedException {
+    private void populate(DBOpenHelper db, News newsIn) throws ExecutionException, InterruptedException {
         NotificationManager manager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.cancel(news.getId());
+        manager.cancel(newsIn.getId());
+        News news = newsIn;
 
-        if (news.getIsReaded() == 0) {
-            ProgressDialog progressDialog = ProgressDialog.show(this, news.getTitle(), getString(R.string.pdLoading), true, true);
-            NewsJSON json = new NewsJSON(news);
-            news = json.getNews(news);
+        if (newsIn.getIsReaded() == 0) {
+            ProgressDialog progressDialog = ProgressDialog.show(this, newsIn.getTitle(), getString(R.string.pdLoading), true, true);
+            NewsJSON json = new NewsJSON(newsIn);
+            news = json.getNews(newsIn);
             db.editNews(news);
             db.readedNews(news);
             progressDialog.dismiss();
