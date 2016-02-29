@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 
+
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
@@ -15,6 +16,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testCoverageEnabled true
+        }
+        debug {
+            testCoverageEnabled = true
         }
     }
 
@@ -40,5 +45,8 @@ dependencies {
     compile files('libs/additionnal.jar')
     compile files('libs/activation.jar')
 
-    testCompile 'junit:junit:4.12'
+    // Unit testing
+    testCompile "org.robolectric:robolectric:3.0-rc3"
+    testCompile "junit:junit:4.12"
+    testCompile "org.assertj:assertj-core:1.7.0"
 }

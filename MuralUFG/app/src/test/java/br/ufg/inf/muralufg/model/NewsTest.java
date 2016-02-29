@@ -1,15 +1,19 @@
 package br.ufg.inf.muralufg.model;
 
+import android.os.Build;
+
 import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.*;
 
 /**
  * Created by Bruno on 28/02/2016.
  */
+@Config(sdk = Build.VERSION_CODES.KITKAT)
 public class NewsTest {
 
     News news = new News();
