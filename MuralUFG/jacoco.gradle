@@ -113,7 +113,7 @@ FileCollection generateSourceFiles(Collection projects) {
  *  Generate a FileCollection of all projects class files
  */
 FileCollection generateClassDirs(Collection projects) {
-    def tree = fileTree('directory does not exists') // I know it's ugly :)
+    def tree = fileTree('directory does not exists')
 
     projects.each { prj ->
         //noinspection GrReassignedInClosureLocalVar
@@ -121,7 +121,8 @@ FileCollection generateClassDirs(Collection projects) {
                 dir: "${prj.name}/build/intermediates/classes/debug",
                 excludes: [
                         '**/R*.class',
-                        '**/BuildConfig*'
+                        '**/BuildConfig*.*',
+                        '**/Manifest*.*'
                 ]
         )
     }
