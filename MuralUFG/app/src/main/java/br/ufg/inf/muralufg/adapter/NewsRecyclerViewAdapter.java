@@ -91,14 +91,6 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
         final ImageView isUrgent;
         private int id;
 
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
         NewsViewHolder(View itemView) {
             super(itemView);
             cv = (CardView) itemView.findViewById(R.id.RVNews);
@@ -122,6 +114,14 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
                         Snackbar.make(InboxFragment.getCoordinatorLayoutView(), context.getString(R.string.NoNetwork), Snackbar.LENGTH_LONG).show();
                 }
             });
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
         }
     }
 }

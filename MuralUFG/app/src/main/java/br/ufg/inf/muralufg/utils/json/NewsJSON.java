@@ -28,8 +28,14 @@ public class NewsJSON {
         this.news = news;
     }
 
-    public News getNews(News news) throws ExecutionException, InterruptedException {
-        new ReadNews().execute(news.getUrl()).get();
+    public News getNews(News news) {
+        try {
+            new ReadNews().execute(news.getUrl()).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
         return news;
     }
 
