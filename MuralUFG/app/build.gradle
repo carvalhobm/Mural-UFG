@@ -11,6 +11,9 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+
+        //InstrumentationTest
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -21,6 +24,10 @@ android {
         debug {
             testCoverageEnabled = true
         }
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
     }
 
     lintOptions{
@@ -34,9 +41,9 @@ repositories {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'com.android.support:design:22.2.0'
-    compile 'com.android.support:recyclerview-v7:22.2.0'
+    compile 'com.android.support:recyclerview-v7:22.0.0'
     compile 'com.android.support:cardview-v7:22.0.+'
     compile 'com.google.android.gms:play-services:7.5.+'
     compile 'com.squareup.picasso:picasso:2.4.0'
@@ -49,4 +56,12 @@ dependencies {
     testCompile "org.robolectric:robolectric:3.0-rc3"
     testCompile "junit:junit:4.12"
     testCompile "org.assertj:assertj-core:1.7.0"
+
+    //InstrumentationTest
+    androidTestCompile 'com.android.support.test:runner:0.2'
+    androidTestCompile 'com.android.support.test:rules:0.2'
+    androidTestCompile 'com.android.support:support-annotations:22.2.0'
+    androidTestCompile ('com.android.support.test.espresso:espresso-core:2.1'){
+        exclude module: 'support-annotations'
+    }
 }
