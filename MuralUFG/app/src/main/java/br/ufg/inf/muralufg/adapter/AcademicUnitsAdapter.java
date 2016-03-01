@@ -38,19 +38,8 @@ public class AcademicUnitsAdapter extends ArrayAdapter<AcademicUnits> {
         else
             cb.setChecked(false);
 
-        cb.setOnCheckedChangeListener((compoundButton, b) -> {
-                    DBOpenHelper db = new DBOpenHelper(context);
-                    AcademicUnits academicUnits = academicUnitslst.get(position);
-                    if (academicUnits.getIsChecked() == 0)
-                        academicUnits.setIsChecked(1);
-                    else
-                        academicUnits.setIsChecked(0);
-                    db.editAcademicUnits(academicUnits);
-                }
-        );
 
-
-/*        cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 DBOpenHelper db = new DBOpenHelper(context);
@@ -61,7 +50,7 @@ public class AcademicUnitsAdapter extends ArrayAdapter<AcademicUnits> {
                     academicUnits.setIsChecked(0);
                 db.editAcademicUnits(academicUnits);
             }
-        });*/
+        });
 
         return newView;
     }

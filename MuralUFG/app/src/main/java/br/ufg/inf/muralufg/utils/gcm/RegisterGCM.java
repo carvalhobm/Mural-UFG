@@ -54,7 +54,6 @@ public class RegisterGCM {
 
     public static void registerInBackground(final Context context) {
 
-
         new AsyncTask<Void, Void, String>() {
             @Override
             protected String doInBackground(Void... params) {
