@@ -33,8 +33,10 @@ public class NewsJSON {
             new ReadNews().execute(news.getUrl()).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
+            Log.e(NewsJSON.TAG, e.getMessage());
         } catch (ExecutionException e) {
             e.printStackTrace();
+            Log.e(NewsJSON.TAG, e.getMessage());
         }
         return news;
     }
