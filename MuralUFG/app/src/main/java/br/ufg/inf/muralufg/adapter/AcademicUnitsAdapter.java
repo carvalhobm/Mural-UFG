@@ -38,6 +38,7 @@ public class AcademicUnitsAdapter extends ArrayAdapter<AcademicUnits> {
         else
             cb.setChecked(false);
 
+
         cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

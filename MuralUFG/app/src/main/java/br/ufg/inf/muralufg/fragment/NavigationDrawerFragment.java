@@ -77,6 +77,7 @@ public class NavigationDrawerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
 
         mDrawerListView = (ListView) view.findViewById(R.id.navigationItems);
+
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -127,6 +128,7 @@ public class NavigationDrawerFragment extends Fragment {
         if (!mUserLearnedDrawer && !mFromSavedInstanceState) {
             mDrawerLayout.openDrawer(mFragmentContainerView);
         }
+
 
         mDrawerLayout.post(new Runnable() {
             @Override

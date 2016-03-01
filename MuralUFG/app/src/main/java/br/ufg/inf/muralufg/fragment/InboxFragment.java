@@ -74,6 +74,7 @@ public class InboxFragment extends Fragment {
                 .build());
 
         final SwipeRefreshLayout srNews = (SwipeRefreshLayout) rootview.findViewById(R.id.SRNews);
+
         srNews.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
