@@ -49,7 +49,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     public int addNews(News news) {
         ContentValues values = new ContentValues();
         values.put(DBInfo.getColumnTitle(), news.getTitle());
-        values.put(DBInfo.getColumnNews(), news.getNews());
+        values.put(DBInfo.getColumnNews(), news.getNewsText());
         values.put(DBInfo.getColumnPhoto(), news.getPhoto());
         values.put(DBInfo.getColumnAuthor(), news.getAuthor());
         values.put(DBInfo.getColumnAuthorbelongs(), news.getAuthorBelongs());
@@ -144,7 +144,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
                 cursor.moveToPosition(i);
                 news.setId(cursor.getInt(0));
                 news.setTitle(cursor.getString(1));
-                news.setNews(cursor.getString(2));
+                news.setNewsText(cursor.getString(2));
                 news.setPhoto(cursor.getString(3));
                 news.setAuthor(cursor.getString(4));
                 news.setAuthorBelongs(cursor.getInt(5));
@@ -164,7 +164,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     public void editNews(News news) {
         ContentValues values = new ContentValues();
         values.put(DBInfo.getColumnTitle(), news.getTitle());
-        values.put(DBInfo.getColumnNews(), news.getNews());
+        values.put(DBInfo.getColumnNews(), news.getNewsText());
         values.put(DBInfo.getColumnPhoto(), news.getPhoto());
         values.put(DBInfo.getColumnAuthor(), news.getAuthor());
         values.put(DBInfo.getColumnAuthorbelongs(), news.getAuthorBelongs());
@@ -192,7 +192,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     public void readedNews(News news) {
         ContentValues values = new ContentValues();
         values.put(DBInfo.getColumnTitle(), news.getTitle());
-        values.put(DBInfo.getColumnNews(), news.getNews());
+        values.put(DBInfo.getColumnNews(), news.getNewsText());
         values.put(DBInfo.getColumnPhoto(), news.getPhoto());
         values.put(DBInfo.getColumnAuthor(), news.getAuthor());
         values.put(DBInfo.getColumnAuthorbelongs(), news.getAuthorBelongs());

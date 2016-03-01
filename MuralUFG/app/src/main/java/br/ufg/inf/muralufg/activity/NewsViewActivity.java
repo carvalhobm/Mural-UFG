@@ -91,6 +91,6 @@ public class NewsViewActivity extends AbstractBaseActivity {
         newsAuthorDateTime.setText(news.getAuthor() + " - " + simpleDateFormat.format(Long.parseLong(news.getDatetime())));
 
         TextView newsNews = (TextView) findViewById(R.id.NewsNews);
-        newsNews.setText(news.getNews());
+        newsNews.setText(news.getNewsText());
     }
 }

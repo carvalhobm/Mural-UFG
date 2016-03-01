@@ -3,7 +3,7 @@ package br.ufg.inf.muralufg.model;
 public class News {
     private int id;
     private String title;
-    private String news;
+    private String newsText;
     private String photo;
     private int authorBelongs;
     private String author;
@@ -15,10 +15,10 @@ public class News {
     public News() {
     }
 
-    public News(int id, String title, String news, String photo, String author, int authorBelongs, String datetime, int relevance, String url) {
+    public News(int id, String title, String newsText, String photo, String author, int authorBelongs, String datetime, int relevance, String url) {
         this.id = id;
         this.title = title;
-        this.news = news;
+        this.newsText = newsText;
         this.photo = photo;
         this.author = author;
         this.authorBelongs = authorBelongs;
@@ -27,9 +27,9 @@ public class News {
         this.url = url;
     }
 
-    public News(String title, String news, String photo, String author, int authorBelongs, String datetime, int relevance, String url) {
+    public News(String title, String newsText, String photo, String author, int authorBelongs, String datetime, int relevance, String url) {
         this.title = title;
-        this.news = news;
+        this.newsText = newsText;
         this.photo = photo;
         this.author = author;
         this.authorBelongs = authorBelongs;
@@ -54,12 +54,12 @@ public class News {
         this.title = title;
     }
 
-    public String getNews() {
-        return news;
+    public String getNewsText() {
+        return newsText;
     }
 
-    public void setNews(String news) {
-        this.news = news;
+    public void setNewsText(String newsText) {
+        this.newsText = newsText;
     }
 
     public String getPhoto() {

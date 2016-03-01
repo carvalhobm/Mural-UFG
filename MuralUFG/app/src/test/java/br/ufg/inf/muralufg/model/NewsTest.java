@@ -47,13 +47,13 @@ public class NewsTest {
 
     @Test
     public void testGetNews() throws Exception {
-        Assert.assertEquals("news", news.getNews());
+        Assert.assertEquals("news", news.getNewsText());
     }
 
     @Test
     public void testSetNews() throws Exception {
-        news.setNews("news-test");
-        Assert.assertEquals("news-test", news.getNews());
+        news.setNewsText("news-test");
+        Assert.assertEquals("news-test", news.getNewsText());
     }
 
     @Test

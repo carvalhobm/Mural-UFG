@@ -21,6 +21,9 @@ public class RegisterGCM {
     private static final String PROPERTY_APP_VERSION = "appVersion";
     private static String senderID = "439472309664";
 
+    private RegisterGCM(){
+    }
+
     public static String getRegistrationId(Context context) {
 
         final SharedPreferences prefs = getGcmPreferences(context);
@@ -39,7 +42,7 @@ public class RegisterGCM {
     }
 
     private static SharedPreferences getGcmPreferences(Context context) {
-        return context.getSharedPreferences((InboxActivity.class.getSimpleName()), Context.MODE_PRIVATE);
+        return context.getSharedPreferences(InboxActivity.class.getSimpleName(), Context.MODE_PRIVATE);
     }
 
     private static int getAppVersion(Context context) {

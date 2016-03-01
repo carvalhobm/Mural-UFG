@@ -66,7 +66,7 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
         }
 
         newsViewHolder.title.setText(news.get(i).getTitle());
-        newsViewHolder.news.setText(news.get(i).getNews());
+        newsViewHolder.news.setText(news.get(i).getNewsText());
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
         newsViewHolder.authordatetime.setText(news.get(i).getAuthor() + " - " + simpleDateFormat.format(Long.parseLong(news.get(i).getDatetime())));
@@ -89,7 +89,15 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
         final TextView authordatetime;
         final CheckBox isreaded;
         final ImageView isUrgent;
-        public int id;
+        private int id;
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
 
         NewsViewHolder(View itemView) {
             super(itemView);

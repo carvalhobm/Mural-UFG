@@ -115,7 +115,7 @@ public class InboxFragment extends Fragment {
                     public void onClick(View v) {
                         if (canDelete) {
                             canDelete = false;
-                            news.add(position, db.getNews(((NewsRecyclerViewAdapter.NewsViewHolder) viewHolder).id));
+                            news.add(position, db.getNews(((NewsRecyclerViewAdapter.NewsViewHolder) viewHolder).getId()));
                             newsRecyclerViewAdapter.notifyItemInserted(position);
                         }
                     }
@@ -135,14 +135,14 @@ public class InboxFragment extends Fragment {
                     public void onViewDetachedFromWindow(View v) {
                         getSnackBarView().setVisibility(View.GONE);
                         if (canDelete) {
-                            db.deleteNewsRow(((NewsRecyclerViewAdapter.NewsViewHolder) viewHolder).id);
+                            db.deleteNewsRow(((NewsRecyclerViewAdapter.NewsViewHolder) viewHolder).getId());
                             newsRecyclerViewAdapter.notifyDataSetChanged();
                         }
                     }
                 });
                 getSnackbar().show();
                 NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                manager.cancel(((NewsRecyclerViewAdapter.NewsViewHolder) viewHolder).id);
+                manager.cancel(((NewsRecyclerViewAdapter.NewsViewHolder) viewHolder).getId());
             }
         });
         swipeToDismissTouchHelper.attachToRecyclerView(rvNews);

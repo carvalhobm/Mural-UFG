@@ -67,7 +67,7 @@ public class NewsJSON {
 
                 JSONObject newscontent = newsItems.getJSONObject(0);
 
-                news.setNews(newscontent.getString("news"));
+                news.setNewsText(newscontent.getString("news"));
                 news.setPhoto(newscontent.getString("photo"));
 
             } catch (Exception e) {
