@@ -1,7 +1,6 @@
 package br.ufg.inf.muralufg.utils.mail;
 
 import java.security.AccessController;
-import java.security.PrivilegedAction;
 import java.security.Provider;
 
 final class JSSEProvider extends Provider {

@@ -121,26 +121,26 @@ public class InboxFragment extends Fragment {
                     }
                 };
 
-                snackbar = Snackbar.make(coordinatorLayoutView, getString(R.string.snackbarNewsRemoved), Snackbar.LENGTH_LONG)
-                        .setAction(R.string.snackbarUndo, clickListener);
+                setSnackbar(Snackbar.make(coordinatorLayoutView, getString(R.string.snackbarNewsRemoved), Snackbar.LENGTH_LONG)
+                        .setAction(R.string.snackbarUndo, clickListener));
 
-                snackBarView = snackbar.getView();
-                snackBarView.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+                setSnackBarView(getSnackbar().getView());
+                getSnackBarView().addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
                     @Override
                     public void onViewAttachedToWindow(View v) {
-                        snackBarView.setVisibility(View.VISIBLE);
+                        getSnackBarView().setVisibility(View.VISIBLE);
                     }
 
                     @Override
                     public void onViewDetachedFromWindow(View v) {
-                        snackBarView.setVisibility(View.GONE);
+                        getSnackBarView().setVisibility(View.GONE);
                         if (canDelete) {
                             db.deleteNewsRow(((NewsRecyclerViewAdapter.NewsViewHolder) viewHolder).id);
                             newsRecyclerViewAdapter.notifyDataSetChanged();
                         }
                     }
                 });
-                snackbar.show();
+                getSnackbar().show();
                 NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 manager.cancel(((NewsRecyclerViewAdapter.NewsViewHolder) viewHolder).id);
             }
@@ -172,7 +172,7 @@ public class InboxFragment extends Fragment {
                 news.remove(i);
         }
 
-        newsRecyclerViewAdapter = new NewsRecyclerViewAdapter(context, news);
+        setNewsRecyclerViewAdapter(new NewsRecyclerViewAdapter(context, news));
         rvNews.setAdapter(newsRecyclerViewAdapter);
 
         ImageView imgBG = (ImageView) rootview.findViewById(R.id.imgBG);
@@ -225,7 +225,23 @@ public class InboxFragment extends Fragment {
         return snackbar;
     }
 
+    public static void setSnackbar(Snackbar snackbar) {
+        InboxFragment.snackbar = snackbar;
+    }
+
     public static View getSnackBarView() {
         return snackBarView;
+    }
+
+    public static void setSnackBarView(View snackBarView) {
+        InboxFragment.snackBarView = snackBarView;
+    }
+
+    public static NewsRecyclerViewAdapter getNewsRecyclerViewAdapter() {
+        return newsRecyclerViewAdapter;
+    }
+
+    public static void setNewsRecyclerViewAdapter(NewsRecyclerViewAdapter newsRecyclerViewAdapter) {
+        InboxFragment.newsRecyclerViewAdapter = newsRecyclerViewAdapter;
     }
 }
