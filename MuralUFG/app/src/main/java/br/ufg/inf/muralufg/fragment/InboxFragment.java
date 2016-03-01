@@ -74,30 +74,14 @@ public class InboxFragment extends Fragment {
                 .build());
 
         final SwipeRefreshLayout srNews = (SwipeRefreshLayout) rootview.findViewById(R.id.SRNews);
+        srNewsRefreshListener(srNews);
 
-        srNews.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                if (isOnline(context)) {
-                    if (snackbar != null) {
-                        snackbar.dismiss();
-                    }
-                    srNews.setRefreshing(true);
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            updateList();
-                            srNews.setRefreshing(false);
-                        }
-                    }, 2000);
-                } else {
-                    srNews.setRefreshing(false);
-                    Snackbar.make(coordinatorLayoutView, getString(R.string.NoNetwork), Snackbar.LENGTH_LONG).show();
-                }
-            }
-        });
+        swipeToDismiss();
 
+        return rootview;
+    }
+
+    private void swipeToDismiss() {
         ItemTouchHelper swipeToDismissTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
@@ -146,8 +130,31 @@ public class InboxFragment extends Fragment {
             }
         });
         swipeToDismissTouchHelper.attachToRecyclerView(rvNews);
+    }
 
-        return rootview;
+    private void srNewsRefreshListener(final SwipeRefreshLayout srNews) {
+        srNews.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                if (isOnline(context)) {
+                    if (snackbar != null) {
+                        snackbar.dismiss();
+                    }
+                    srNews.setRefreshing(true);
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            updateList();
+                            srNews.setRefreshing(false);
+                        }
+                    }, 2000);
+                } else {
+                    srNews.setRefreshing(false);
+                    Snackbar.make(coordinatorLayoutView, getString(R.string.NoNetwork), Snackbar.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     @Override
