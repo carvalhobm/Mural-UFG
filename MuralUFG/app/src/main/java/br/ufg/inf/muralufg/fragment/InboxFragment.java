@@ -74,7 +74,26 @@ public class InboxFragment extends Fragment {
                 .build());
 
         final SwipeRefreshLayout srNews = (SwipeRefreshLayout) rootview.findViewById(R.id.SRNews);
-        srNews.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        srNews.setOnRefreshListener(() -> {
+            if (isOnline(context)) {
+                if (snackbar != null) {
+                    snackbar.dismiss();
+                }
+                srNews.setRefreshing(true);
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        updateList();
+                        srNews.setRefreshing(false);
+                    }
+                }, 2000);
+            } else {
+                srNews.setRefreshing(false);
+                Snackbar.make(coordinatorLayoutView, getString(R.string.NoNetwork), Snackbar.LENGTH_LONG).show();
+            }
+        });
+
+/*        srNews.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 if (isOnline(context)) {
@@ -95,7 +114,7 @@ public class InboxFragment extends Fragment {
                     Snackbar.make(coordinatorLayoutView, getString(R.string.NoNetwork), Snackbar.LENGTH_LONG).show();
                 }
             }
-        });
+        });*/
 
         ItemTouchHelper swipeToDismissTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
