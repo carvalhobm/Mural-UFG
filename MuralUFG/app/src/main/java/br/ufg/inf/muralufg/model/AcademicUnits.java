@@ -7,6 +7,7 @@ public class AcademicUnits {
     private int isChecked;
 
     public AcademicUnits() {
+        //Used by SugarORM
     }
 
     public AcademicUnits(int unitID, String unit, int isChecked) {

@@ -13,6 +13,7 @@ public class News {
     private String url;
 
     public News() {
+        //Used by SugarORM
     }
 
     public News(int id, String title, String newsText, String photo, String author, int authorBelongs, String datetime, int relevance, String url) {
