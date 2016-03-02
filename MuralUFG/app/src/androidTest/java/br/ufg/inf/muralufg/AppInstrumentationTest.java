@@ -18,6 +18,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import br.ufg.inf.muralufg.activity.InboxActivity;
+import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -52,13 +53,21 @@ public class AppInstrumentationTest extends TestCase{
 
     @Test
     public void swipeToDeleteIT(){
+        int initialNewsCount;
+        int finalNewsCount;
+        DBOpenHelper db = new DBOpenHelper(mActivityRule.getActivity().getApplicationContext());
+        initialNewsCount = db.getNews().size();
 
-            onView(withId(R.id.RVNews)).perform(swipeLeft());
-            onView(withId(R.id.RVNews)).perform(swipeDown());
-            onView(withId(R.id.RVNews)).perform(swipeRight());
-            onView(withId(R.id.RVNews)).perform(swipeDown());
-            onView(withId(R.id.RVNews)).perform(swipeUp());
-            // Checar quantidade de cards antes e depois pra comparar;
+        onView(withId(R.id.RVNews)).perform(swipeLeft());
+        onView(withId(R.id.RVNews)).perform(swipeDown());
+        onView(withId(R.id.RVNews)).perform(swipeRight());
+        onView(withId(R.id.RVNews)).perform(swipeDown());
+        onView(withId(R.id.RVNews)).perform(swipeUp());
+        // Checar quantidade de cards antes e depois pra comparar;
+
+        finalNewsCount = db.getNews().size();
+
+        assertEquals(initialNewsCount - 2, finalNewsCount);
     }
 
     @Test
