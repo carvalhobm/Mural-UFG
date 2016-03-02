@@ -22,6 +22,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -92,26 +93,51 @@ public class GcmIntentService extends IntentService {
         Notification notification;
 
         if ("1".equals(extras.get("relevance").toString())) {
-
-            notification = new Notification.Builder(getApplicationContext())
-                    .setSmallIcon(R.drawable.ufg_notification)
-                    .setSound(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.phonebeeping))
-                    .setLights(Color.RED, 3000, 2000)
-                    .setContentIntent(pendingIntent)
-                    .setTicker(extras.get(GcmIntentService.TITLE).toString())
-                    .setContentTitle(extras.get(GcmIntentService.NEWS).toString())
-                    .setContentText(extras.get(GcmIntentService.AUTHOR).toString())
-                    .build();
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT_WATCH) {
+                notification = new Notification.Builder(getApplicationContext())
+                        .setSmallIcon(R.drawable.ufg_notification)
+                        .setSound(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.phonebeeping))
+                        .setLights(Color.RED, 3000, 2000)
+                        .setContentIntent(pendingIntent)
+                        .setTicker(extras.get(GcmIntentService.TITLE).toString())
+                        .setContentTitle(extras.get(GcmIntentService.NEWS).toString())
+                        .setContentText(extras.get(GcmIntentService.AUTHOR).toString())
+                        .extend(new Notification.WearableExtender().setBackground(BitmapFactory.decodeResource(getApplication().getResources(), R.mipmap.ic_launcher)))
+                        .build();
+            } else {
+                notification = new Notification.Builder(getApplicationContext())
+                        .setSmallIcon(R.drawable.ufg_notification)
+                        .setSound(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.phonebeeping))
+                        .setLights(Color.RED, 3000, 2000)
+                        .setContentIntent(pendingIntent)
+                        .setTicker(extras.get(GcmIntentService.TITLE).toString())
+                        .setContentTitle(extras.get(GcmIntentService.NEWS).toString())
+                        .setContentText(extras.get(GcmIntentService.AUTHOR).toString())
+                        .build();
+            }
         } else {
-            notification = new Notification.Builder(getApplicationContext())
-                    .setSmallIcon(R.drawable.ufg_notification)
-                    .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
-                    .setLights(Color.BLUE, 1000, 5000)
-                    .setContentIntent(pendingIntent)
-                    .setTicker(extras.get(GcmIntentService.TITLE).toString())
-                    .setContentTitle(extras.get(GcmIntentService.NEWS).toString())
-                    .setContentText(extras.get(GcmIntentService.AUTHOR).toString())
-                    .build();
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT_WATCH) {
+                notification = new Notification.Builder(getApplicationContext())
+                        .setSmallIcon(R.drawable.ufg_notification)
+                        .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
+                        .setLights(Color.BLUE, 1000, 5000)
+                        .setContentIntent(pendingIntent)
+                        .setTicker(extras.get(GcmIntentService.TITLE).toString())
+                        .setContentTitle(extras.get(GcmIntentService.NEWS).toString())
+                        .setContentText(extras.get(GcmIntentService.AUTHOR).toString())
+                        .extend(new Notification.WearableExtender().setBackground(BitmapFactory.decodeResource(getApplication().getResources(), R.mipmap.ic_launcher)))
+                        .build();
+            } else {
+                notification = new Notification.Builder(getApplicationContext())
+                        .setSmallIcon(R.drawable.ufg_notification)
+                        .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
+                        .setLights(Color.BLUE, 1000, 5000)
+                        .setContentIntent(pendingIntent)
+                        .setTicker(extras.get(GcmIntentService.TITLE).toString())
+                        .setContentTitle(extras.get(GcmIntentService.NEWS).toString())
+                        .setContentText(extras.get(GcmIntentService.AUTHOR).toString())
+                        .build();
+            }
         }
 
         NotificationManager manager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
