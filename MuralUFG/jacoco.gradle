@@ -63,6 +63,8 @@ task jacocoFullReport(type: JacocoReport, group: 'Coverage reports') {
 
     doFirst {
         delete fileTree (dir: "${buildDir}/classes", include: "**/BuildConfig*.*")
+        //noinspection GroovyAssignabilityCheck
+        executionData = files(executionData.findAll { it.exists() })
     }
 
     group = 'Reporting'
@@ -93,11 +95,6 @@ task jacocoFullReport(type: JacocoReport, group: 'Coverage reports') {
             enabled true
             destination 'build/reports/jacoco/full/jacocoFullReport.xml'
         }
-    }
-
-    doFirst {
-        //noinspection GroovyAssignabilityCheck
-        executionData = files(executionData.findAll { it.exists() })
     }
 }
 
