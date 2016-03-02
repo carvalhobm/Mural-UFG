@@ -218,4 +218,19 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         cursor.close();
         return false;
     }
+
+    public List<News> canDisplayNews(List<News> news) {
+        List<News> displayNews = new ArrayList<>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        for (int i=0; i > news.size(); i++){
+            String query = "SELECT * FROM " + DBInfo.getTableNameAcademicUnits() + " WHERE " + DBInfo.getColumnIsChecked() + " = 1 AND " + DBInfo.getColumnUnitID() + " = " + news.get(i).getAuthorBelongs();
+            Cursor cursor = db.rawQuery(query, null);
+            if (cursor.getCount() > 0) {
+                cursor.close();
+                displayNews.add(news.get(i));
+            }
+        }
+        return displayNews;
+    }
 }
