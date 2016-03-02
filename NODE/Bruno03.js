@@ -12,7 +12,7 @@ var post_data = JSON.stringify(
             "relevance" : 1,
 			"url": "https://dl.dropboxusercontent.com/s/xfhuqb1av2l3rbp/03.json?dl=0"
         },
-		"registration_ids": ["APA91bEe-x1rPb6xHpol64o812hcpsnwx0d7dC6WhGAn4RZalXSNG1tlwlqWjWA7rTwUb23A28fRAMog3NDEi54Khoa4ZkPQOi_IehWoZGf3EYNLV9MRRHNxd5_Jkzrrat_JF1rDHORR"]
+		"registration_ids": ["APA91bFCWI7TgMMcc3qqeUfpASgb6Sd9iREjgeV9EzYpn_4AzIiQgFz4-MvZ6tMsmjh2Gpz09fI-aPTqfmzj26d4AW9oxS_G7Pl7J6oXOWYbCqGbSqTWix7bN3Cj9IScC6x0mY-3tpxg"]
     }
 );
 

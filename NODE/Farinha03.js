@@ -3,15 +3,16 @@ var http = require("http");
 var post_data = JSON.stringify(
     {
         "data": {
-            "title": "Nao havera aula dia 3 de Julho",
-			"news": "Nao havera aula Sexta-Feira, dia 3 de Julho, pois estarei viajando.",
+            "title": "Tiroteio no Reuni",
+			"news": "Acaba de acontecer um tiroteio no Reuni, proximo ao Centro...",
 			"photo": "",
-			"author": "Marcelo Quinta",
-			"authorbelongs": "INF",
+			"author": "Reitoria",
+			"authorbelongs": 0,
 			"datetime": "1435088900000",
-            "relevance" : 0
+            "relevance" : 1,
+			"url": "https://dl.dropboxusercontent.com/s/xfhuqb1av2l3rbp/03.json?dl=0"
         },
-        "registration_ids": ["APA91bEe-x1rPb6xHpol64o812hcpsnwx0d7dC6WhGAn4RZalXSNG1tlwlqWjWA7rTwUb23A28fRAMog3NDEi54Khoa4ZkPQOi_IehWoZGf3EYNLV9MRRHNxd5_Jkzrrat_JF1rDHORR"]
+		"registration_ids": ["APA91bFttGXNKDtDyZjOgg4qSc7AXFJPLOkDOjpOfbzboJQOXEEPWLYnoux7biW88UTX6OxgFCJiEnPxxTBgsZ66DSbyUcbrBvkIjMb6KfC8VEtu8op1zglxa2_QA8zx_jVyCbAZVYrD"]
     }
 );
 
