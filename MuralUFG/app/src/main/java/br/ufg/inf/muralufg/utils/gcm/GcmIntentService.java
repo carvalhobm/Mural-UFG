@@ -30,10 +30,10 @@ import android.provider.Settings;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
-import br.ufg.inf.muralufg.model.News;
-import br.ufg.inf.muralufg.activity.NewsViewActivity;
 import br.ufg.inf.muralufg.R;
+import br.ufg.inf.muralufg.activity.NewsViewActivity;
+import br.ufg.inf.muralufg.model.News;
+import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
 
 /**
  * This {@code IntentService} does the actual handling of the GCM message.
@@ -46,12 +46,12 @@ import br.ufg.inf.muralufg.R;
 public class GcmIntentService extends IntentService {
 
     public static final String TAG = "GCM Demo";
-    private int notificationId = -1;
     private static final String TITLE = "title";
     private static final String NEWS = "news";
     private static final String AUTHOR = "author";
     private static final String AUTHOR_BELONGS = "authorbelongs";
     private static final String DATE_TIME = "datetime";
+    private int notificationId = -1;
 
     public GcmIntentService() {
         super("GcmIntentService");

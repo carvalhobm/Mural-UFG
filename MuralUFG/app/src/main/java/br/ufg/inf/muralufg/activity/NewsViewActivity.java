@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,12 +16,11 @@ import com.squareup.picasso.Picasso;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.ExecutionException;
 
-import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
+import br.ufg.inf.muralufg.R;
 import br.ufg.inf.muralufg.fragment.InboxFragment;
 import br.ufg.inf.muralufg.model.News;
+import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
 import br.ufg.inf.muralufg.utils.json.NewsJSON;
-import br.ufg.inf.muralufg.R;
-import android.util.Log;
 
 public class NewsViewActivity extends AbstractBaseActivity {
 

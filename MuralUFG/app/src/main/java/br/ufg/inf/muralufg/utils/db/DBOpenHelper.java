@@ -9,8 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufg.inf.muralufg.model.News;
 import br.ufg.inf.muralufg.model.AcademicUnits;
+import br.ufg.inf.muralufg.model.News;
 
 public class DBOpenHelper extends SQLiteOpenHelper {
     public DBOpenHelper(Context context) {

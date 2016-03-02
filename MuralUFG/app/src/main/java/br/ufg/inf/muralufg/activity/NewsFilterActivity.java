@@ -6,10 +6,10 @@ import android.widget.ListView;
 
 import java.util.List;
 
-import br.ufg.inf.muralufg.model.AcademicUnits;
-import br.ufg.inf.muralufg.adapter.AcademicUnitsAdapter;
-import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
 import br.ufg.inf.muralufg.R;
+import br.ufg.inf.muralufg.adapter.AcademicUnitsAdapter;
+import br.ufg.inf.muralufg.model.AcademicUnits;
+import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
 
 public class NewsFilterActivity extends AbstractBaseActivity {
 

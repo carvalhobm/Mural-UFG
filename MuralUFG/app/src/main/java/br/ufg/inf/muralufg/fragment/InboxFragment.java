@@ -29,11 +29,11 @@ import java.util.List;
 import java.util.Locale;
 
 import br.ufg.inf.muralufg.R;
-import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
-import br.ufg.inf.muralufg.model.News;
+import br.ufg.inf.muralufg.activity.NewsFilterActivity;
 import br.ufg.inf.muralufg.adapter.NewsRecyclerViewAdapter;
 import br.ufg.inf.muralufg.model.AcademicUnits;
-import br.ufg.inf.muralufg.activity.NewsFilterActivity;
+import br.ufg.inf.muralufg.model.News;
+import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
 
 
 public class InboxFragment extends Fragment {
@@ -53,6 +53,38 @@ public class InboxFragment extends Fragment {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+
+    public static View getCoordinatorLayoutView() {
+        return coordinatorLayoutView;
+    }
+
+    public static void setcoordinatorLayoutView(View coordinatorLayoutView) {
+        InboxFragment.coordinatorLayoutView = coordinatorLayoutView;
+    }
+
+    public static Snackbar getSnackbar() {
+        return snackbar;
+    }
+
+    public static void setSnackbar(Snackbar snackbar) {
+        InboxFragment.snackbar = snackbar;
+    }
+
+    public static View getSnackBarView() {
+        return snackBarView;
+    }
+
+    public static void setSnackBarView(View snackBarView) {
+        InboxFragment.snackBarView = snackBarView;
+    }
+
+    public static NewsRecyclerViewAdapter getNewsRecyclerViewAdapter() {
+        return newsRecyclerViewAdapter;
+    }
+
+    public static void setNewsRecyclerViewAdapter(NewsRecyclerViewAdapter newsRecyclerViewAdapter) {
+        InboxFragment.newsRecyclerViewAdapter = newsRecyclerViewAdapter;
     }
 
     @Nullable
@@ -188,8 +220,7 @@ public class InboxFragment extends Fragment {
                 imgBG.setImageResource(R.drawable.ufg_no_news_ptbr);
             else
                 imgBG.setImageResource(R.drawable.ufg_no_news_en);
-        }
-        else
+        } else
             imgBG.setImageDrawable(null);
     }
 
@@ -218,37 +249,5 @@ public class InboxFragment extends Fragment {
                 db.addAcademicUnits(aux);
             }
         }
-    }
-
-    public static View getCoordinatorLayoutView() {
-        return coordinatorLayoutView;
-    }
-
-    public static void setcoordinatorLayoutView(View coordinatorLayoutView) {
-        InboxFragment.coordinatorLayoutView = coordinatorLayoutView;
-    }
-
-    public static Snackbar getSnackbar() {
-        return snackbar;
-    }
-
-    public static void setSnackbar(Snackbar snackbar) {
-        InboxFragment.snackbar = snackbar;
-    }
-
-    public static View getSnackBarView() {
-        return snackBarView;
-    }
-
-    public static void setSnackBarView(View snackBarView) {
-        InboxFragment.snackBarView = snackBarView;
-    }
-
-    public static NewsRecyclerViewAdapter getNewsRecyclerViewAdapter() {
-        return newsRecyclerViewAdapter;
-    }
-
-    public static void setNewsRecyclerViewAdapter(NewsRecyclerViewAdapter newsRecyclerViewAdapter) {
-        InboxFragment.newsRecyclerViewAdapter = newsRecyclerViewAdapter;
     }
 }

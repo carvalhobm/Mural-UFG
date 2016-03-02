@@ -99,8 +99,8 @@ public class NavigationDrawerFragment extends Fragment {
     public void setUp(int fragmentId, DrawerLayout drawerLayout) {
         mFragmentContainerView = getActivity().findViewById(fragmentId);
         mDrawerLayout = drawerLayout;
-        mDrawerToggle = new ActionBarDrawerToggle(getActivity(),mDrawerLayout,
-                InboxActivity.getToolbar(),R.string.navigation_drawer_open,R.string.navigation_drawer_close) {
+        mDrawerToggle = new ActionBarDrawerToggle(getActivity(), mDrawerLayout,
+                InboxActivity.getToolbar(), R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);

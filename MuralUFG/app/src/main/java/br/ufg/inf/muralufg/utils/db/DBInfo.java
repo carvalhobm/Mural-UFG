@@ -51,7 +51,7 @@ class DBInfo {
     private static final String DELETE_TABLE_NEWS = "DROP TABLE IF EXISTS " + TABLE_NAME_NEWS;
     private static final String DELETE_TABLE_ACADEMITUNITS = "DROP TABLE IF EXISTS " + TABLE_NAME_ACADEMITUNITS;
 
-    private DBInfo(){
+    private DBInfo() {
     }
 
     //Get's

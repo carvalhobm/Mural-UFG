@@ -10,9 +10,9 @@ import android.widget.CompoundButton;
 
 import java.util.List;
 
+import br.ufg.inf.muralufg.R;
 import br.ufg.inf.muralufg.model.AcademicUnits;
 import br.ufg.inf.muralufg.utils.db.DBOpenHelper;
-import br.ufg.inf.muralufg.R;
 
 public class AcademicUnitsAdapter extends ArrayAdapter<AcademicUnits> {
 

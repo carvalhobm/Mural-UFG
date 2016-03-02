@@ -13,6 +13,14 @@ public abstract class AbstractBaseActivity extends AppCompatActivity {
 
     private static Toolbar toolbar;
 
+    public static Toolbar getToolbar() {
+        return toolbar;
+    }
+
+    public static void setToolbar(Toolbar toolbar) {
+        AbstractBaseActivity.toolbar = toolbar;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,12 +39,4 @@ public abstract class AbstractBaseActivity extends AppCompatActivity {
     }
 
     protected abstract void setActivityContentView();
-
-    public static void setToolbar(Toolbar toolbar) {
-        AbstractBaseActivity.toolbar = toolbar;
-    }
-
-    public static Toolbar getToolbar() {
-        return toolbar;
-    }
 }

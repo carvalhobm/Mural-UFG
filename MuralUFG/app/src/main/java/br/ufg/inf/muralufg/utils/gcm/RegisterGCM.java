@@ -21,7 +21,7 @@ public class RegisterGCM {
     private static final String PROPERTY_APP_VERSION = "appVersion";
     private static String senderID = "439472309664";
 
-    private RegisterGCM(){
+    private RegisterGCM() {
     }
 
     public static String getRegistrationId(Context context) {

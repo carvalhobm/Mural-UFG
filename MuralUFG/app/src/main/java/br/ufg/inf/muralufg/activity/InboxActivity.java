@@ -10,18 +10,34 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
+import br.ufg.inf.muralufg.R;
 import br.ufg.inf.muralufg.fragment.InboxFragment;
 import br.ufg.inf.muralufg.fragment.NavigationDrawerFragment;
-import br.ufg.inf.muralufg.R;
 import br.ufg.inf.muralufg.utils.gcm.RegisterGCM;
 
 
 public class InboxActivity extends AbstractBaseActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
-    private Context context;
+    public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     private static GoogleCloudMessaging gcm;
     private static String regid;
-    public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    private Context context;
+
+    public static GoogleCloudMessaging getGCM() {
+        return gcm;
+    }
+
+    public static void setGCM(GoogleCloudMessaging gcm) {
+        InboxActivity.gcm = gcm;
+    }
+
+    public static String getregid() {
+        return regid;
+    }
+
+    public static void setregid(String regid) {
+        InboxActivity.regid = regid;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,21 +98,5 @@ public class InboxActivity extends AbstractBaseActivity implements NavigationDra
             return false;
         }
         return true;
-    }
-
-    public static GoogleCloudMessaging getGCM() {
-        return gcm;
-    }
-
-    public static void setGCM(GoogleCloudMessaging gcm) {
-        InboxActivity.gcm = gcm;
-    }
-
-    public static String getregid() {
-        return regid;
-    }
-
-    public static void setregid(String regid) {
-        InboxActivity.regid = regid;
     }
 }
